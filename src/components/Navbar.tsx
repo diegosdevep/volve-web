@@ -5,100 +5,151 @@ export default function Navbar() {
   const { t, i18n } = useTranslation()
   const isEs = i18n.language.startsWith('es')
   const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      backgroundColor: 'rgba(255,255,255,0.85)',
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
+      borderBottom: '1px solid #F3F4F6',
+    }}>
+      <div style={{
+        maxWidth: 1100, margin: '0 auto', padding: '0 32px',
+        height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
 
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <div
-            className="w-8 h-8 rounded-xl flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #7C6CFF, #B8AEFF)' }}
-          >
-            <span className="text-white text-sm font-bold">V</span>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', flexShrink: 0 }}>
+          <div style={{
+            width: 34, height: 34, borderRadius: 10,
+            background: 'linear-gradient(135deg, #7C6CFF, #B8AEFF)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <span style={{ color: '#fff', fontSize: 14, fontWeight: 700 }}>V</span>
           </div>
-          <span className="font-bold text-lg text-gray-900 tracking-tight">Volvé</span>
+          <span style={{ fontWeight: 700, fontSize: 17, color: '#111827', letterSpacing: '-0.3px' }}>Volvé</span>
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium">
-            {t('nav.features')}
-          </a>
-          <a href="#how-it-works" className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium">
-            {t('nav.howItWorks')}
-          </a>
-          <a
-            href="#download"
-            className="text-sm font-semibold text-white px-5 py-2.5 rounded-full transition-all hover:opacity-90"
-            style={{ backgroundColor: '#7C6CFF', boxShadow: '0 2px 12px rgba(124,108,255,0.35)' }}
-          >
-            {t('nav.download')}
-          </a>
-        </div>
-
-        {/* Right: language + hamburger */}
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => i18n.changeLanguage(isEs ? 'en' : 'es')}
-            className="text-sm text-gray-500 hover:text-gray-900 transition-colors font-medium"
-          >
-            {isEs ? 'EN' : 'ES'}
-          </button>
-
-          {/* Hamburger */}
-          <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-            onClick={() => setOpen(!open)}
-            aria-label="Menú"
-          >
-            <span
-              className="block w-5 h-0.5 bg-gray-700 origin-center transition-all duration-200"
-              style={{ transform: open ? 'translateY(7px) rotate(45deg)' : 'none' }}
-            />
-            <span
-              className="block w-5 h-0.5 bg-gray-700 transition-all duration-200"
-              style={{ opacity: open ? 0 : 1 }}
-            />
-            <span
-              className="block w-5 h-0.5 bg-gray-700 origin-center transition-all duration-200"
-              style={{ transform: open ? 'translateY(-7px) rotate(-45deg)' : 'none' }}
-            />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <div
-        className="md:hidden overflow-hidden transition-all duration-300"
-        style={{ maxHeight: open ? 220 : 0 }}
-      >
-        <div className="border-t border-gray-100 bg-white px-6 py-5 flex flex-col gap-4">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="desktop-nav">
           <a
             href="#features"
-            className="text-sm text-gray-700 font-medium hover:text-gray-900"
-            onClick={() => setOpen(false)}
+            style={{ fontSize: 14, color: '#4B5563', textDecoration: 'none', fontWeight: 500 }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
           >
             {t('nav.features')}
           </a>
           <a
             href="#how-it-works"
-            className="text-sm text-gray-700 font-medium hover:text-gray-900"
-            onClick={() => setOpen(false)}
+            style={{ fontSize: 14, color: '#4B5563', textDecoration: 'none', fontWeight: 500 }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
           >
             {t('nav.howItWorks')}
           </a>
           <a
             href="#download"
-            className="inline-flex items-center justify-center text-sm font-semibold text-white py-3 rounded-xl"
-            style={{ backgroundColor: '#7C6CFF' }}
-            onClick={() => setOpen(false)}
+            style={{
+              fontSize: 14, fontWeight: 600, color: '#fff',
+              padding: '9px 22px', borderRadius: 999, textDecoration: 'none',
+              backgroundColor: '#7C6CFF',
+              boxShadow: '0 2px 12px rgba(124,108,255,0.35)',
+              transition: 'opacity 0.15s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
+            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+          >
+            {t('nav.download')}
+          </a>
+        </div>
+
+        {/* Right side */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+          {/* Language toggle */}
+          <button
+            onClick={() => i18n.changeLanguage(isEs ? 'en' : 'es')}
+            style={{
+              fontSize: 13, fontWeight: 500, color: '#6B7280',
+              background: 'none', border: 'none', cursor: 'pointer', padding: '4px 8px',
+              borderRadius: 6,
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#6B7280')}
+          >
+            {isEs ? 'EN' : 'ES'}
+          </button>
+
+          {/* Hamburger (mobile only) */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menú"
+            style={{
+              display: 'none',
+              flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+              width: 36, height: 36, gap: 5,
+              background: 'none', border: 'none', cursor: 'pointer', padding: 4,
+            }}
+            className="hamburger-btn"
+          >
+            <span style={{
+              display: 'block', width: 20, height: 2, backgroundColor: '#374151', borderRadius: 2,
+              transformOrigin: 'center',
+              transform: mobileOpen ? 'translateY(7px) rotate(45deg)' : 'none',
+              transition: 'transform 0.2s',
+            }} />
+            <span style={{
+              display: 'block', width: 20, height: 2, backgroundColor: '#374151', borderRadius: 2,
+              opacity: mobileOpen ? 0 : 1, transition: 'opacity 0.2s',
+            }} />
+            <span style={{
+              display: 'block', width: 20, height: 2, backgroundColor: '#374151', borderRadius: 2,
+              transformOrigin: 'center',
+              transform: mobileOpen ? 'translateY(-7px) rotate(-45deg)' : 'none',
+              transition: 'transform 0.2s',
+            }} />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div style={{
+        overflow: 'hidden', maxHeight: mobileOpen ? 220 : 0,
+        transition: 'max-height 0.3s ease',
+      }} className="mobile-menu">
+        <div style={{
+          borderTop: '1px solid #F3F4F6', backgroundColor: '#fff',
+          padding: '20px 32px', display: 'flex', flexDirection: 'column', gap: 16,
+        }}>
+          <a href="#features" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+            {t('nav.features')}
+          </a>
+          <a href="#how-it-works" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+            {t('nav.howItWorks')}
+          </a>
+          <a
+            href="#download"
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 14, fontWeight: 600, color: '#fff',
+              padding: '12px', borderRadius: 12, textDecoration: 'none',
+              backgroundColor: '#7C6CFF',
+            }}
+            onClick={() => setMobileOpen(false)}
           >
             {t('nav.download')}
           </a>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .desktop-nav { display: none !important; }
+          .hamburger-btn { display: flex !important; }
+        }
+      `}</style>
     </nav>
   )
 }
