@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import { doc, onSnapshot, Timestamp } from 'firebase/firestore'
 import { db } from '../firebase'
@@ -63,14 +63,20 @@ function formatDist(km: number): string {
   return `${km.toFixed(1)} km`
 }
 
-function formatElapsed(ms: number): string {
-  const totalSeconds = Math.floor(ms / 1000)
-  const h = Math.floor(totalSeconds / 3600)
-  const m = Math.floor((totalSeconds % 3600) / 60)
-  const s = totalSeconds % 60
-  if (h > 0) return `${h}h ${m}m`
-  if (m > 0) return `${m}m ${s}s`
-  return `${s}s`
+function formatAlertTime(ts: { toDate(): Date }): string {
+  const d = ts.toDate()
+  return d.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+}
+
+function formatAlertDate(ts: { toDate(): Date }): string {
+  const d = ts.toDate()
+  const today = new Date()
+  const isToday =
+    d.getDate() === today.getDate() &&
+    d.getMonth() === today.getMonth() &&
+    d.getFullYear() === today.getFullYear()
+  if (isToday) return 'Hoy'
+  return d.toLocaleDateString('es-AR', { day: 'numeric', month: 'short' })
 }
 
 // ── Map auto-pan ─────────────────────────────────────────────────
@@ -91,19 +97,7 @@ export default function TrackingPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
-  const [elapsed, setElapsed] = useState('')
   const [copied, setCopied] = useState(false)
-  const alertStartRef = useRef<number | null>(null)
-
-  // Live elapsed counter
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (alertStartRef.current !== null) {
-        setElapsed(formatElapsed(Date.now() - alertStartRef.current))
-      }
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
 
   // Firestore real-time subscription
   useEffect(() => {
@@ -125,11 +119,6 @@ export default function TrackingPage() {
         setSession(data)
         setLastUpdate(new Date())
         setLoading(false)
-        if (alertStartRef.current === null) {
-          const t = data.triggeredAt?.toMillis() ?? Date.now()
-          alertStartRef.current = t
-          setElapsed(formatElapsed(Date.now() - t))
-        }
       },
       () => {
         setError('No se puede acceder a esta sesión')
@@ -459,8 +448,9 @@ export default function TrackingPage() {
             gap: 10, marginBottom: 20,
           }}>
             <StatCard
-              label="Tiempo"
-              value={elapsed || '—'}
+              label="Alerta disparada"
+              value={formatAlertTime(session.triggeredAt ?? session.scheduledEnd)}
+              sublabel={formatAlertDate(session.triggeredAt ?? session.scheduledEnd)}
               bg={`${alertColor}10`}
               border={`${alertColor}28`}
               color={alertColor}
@@ -699,10 +689,11 @@ export default function TrackingPage() {
 // ── Sub-components ───────────────────────────────────────────────
 
 function StatCard({
-  label, value, bg, border, color, small = false,
+  label, value, sublabel, bg, border, color, small = false,
 }: {
   label: string
   value: string
+  sublabel?: string
   bg: string
   border: string
   color: string
@@ -726,6 +717,9 @@ function StatCard({
       }}>
         {value}
       </p>
+      {sublabel && (
+        <p style={{ fontSize: 11, color: '#9CA3AF', margin: '3px 0 0' }}>{sublabel}</p>
+      )}
     </div>
   )
 }
