@@ -107,7 +107,17 @@ export default function TrackingPage() {
   )
   const lastPoint = points.length > 0 ? points[points.length - 1] : null
   const isPanic = session.status === 'panicButton'
-  const isLive = session.isLiveTracking !== false  // undefined = legacy sessions = assume live
+
+  // Detectar si el último punto tiene más de 30 minutos (tracking stale)
+  const lastRoutePoint = session.routePoints && session.routePoints.length > 0
+    ? session.routePoints[session.routePoints.length - 1]
+    : null
+  const minutesSinceLastPoint = lastRoutePoint
+    ? (Date.now() - lastRoutePoint.timestamp.toMillis()) / 60000
+    : null
+  const isStale = minutesSinceLastPoint !== null && minutesSinceLastPoint > 30
+
+  const isLive = session.isLiveTracking !== false && !isStale
   const alertColor = isPanic ? '#B91C1C' : '#DC2626'
   const alertLabel = isPanic ? '🆘 ALERTA DE PÁNICO' : '🚨 ALERTA DE SEGURIDAD'
   const personName = session.personsOfInterest?.[0]?.fullName
@@ -206,8 +216,9 @@ export default function TrackingPage() {
       {!isLive && (
         <div className="bg-gray-800 text-white px-5 py-3 text-center text-sm">
           <span className="text-gray-300">
-            📍 El usuario dejó de compartir su ubicación en vivo.
-            El mapa muestra la <strong>última posición conocida</strong>.
+            {isStale
+              ? `⏱️ Sin actualizaciones hace ${Math.round(minutesSinceLastPoint!)} min. El dispositivo puede estar sin conexión o el tracking finalizó.`
+              : '📍 El usuario dejó de compartir su ubicación. El mapa muestra la última posición conocida.'}
           </span>
         </div>
       )}
