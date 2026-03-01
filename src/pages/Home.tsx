@@ -280,7 +280,7 @@ export default function Home() {
       </section>
 
       {/* ── CÓMO FUNCIONA ── */}
-      <section id="como-funciona" style={{ background: '#fff', padding: '88px 32px' }}>
+      <section id="how-it-works" style={{ background: '#fff', padding: '88px 32px' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <SectionLabel>{isEs ? 'Paso a paso' : 'Step by step'}</SectionLabel>
