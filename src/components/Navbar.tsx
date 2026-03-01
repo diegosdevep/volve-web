@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 export default function Navbar() {
   const { t, i18n } = useTranslation()
   const isEs = i18n.language.startsWith('es')
-  const [open, setOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
