@@ -20,6 +20,7 @@ interface PersonOfInterest {
 interface SessionData {
   title: string
   status: 'upcoming' | 'active' | 'disarmed' | 'triggered' | 'panicButton'
+  isLiveTracking?: boolean
   routePoints?: RoutePoint[]
   scheduledEnd: Timestamp
   personsOfInterest?: PersonOfInterest[]
@@ -106,6 +107,7 @@ export default function TrackingPage() {
   )
   const lastPoint = points.length > 0 ? points[points.length - 1] : null
   const isPanic = session.status === 'panicButton'
+  const isLive = session.isLiveTracking !== false  // undefined = legacy sessions = assume live
   const alertColor = isPanic ? '#B91C1C' : '#DC2626'
   const alertLabel = isPanic ? '🆘 ALERTA DE PÁNICO' : '🚨 ALERTA DE SEGURIDAD'
   const personName = session.personsOfInterest?.[0]?.fullName
@@ -118,10 +120,17 @@ export default function TrackingPage() {
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-1 flex-wrap">
             <span className="text-base font-bold tracking-wide">{alertLabel}</span>
-            <span className="flex items-center gap-1.5 text-xs bg-white/20 px-2.5 py-0.5 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              En vivo
-            </span>
+            {isLive ? (
+              <span className="flex items-center gap-1.5 text-xs bg-white/20 px-2.5 py-0.5 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                En vivo
+              </span>
+            ) : (
+              <span className="flex items-center gap-1.5 text-xs bg-black/30 px-2.5 py-0.5 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-gray-400" />
+                Tracking detenido
+              </span>
+            )}
           </div>
           <p className="text-white/80 text-sm">
             {session.title}
@@ -193,6 +202,16 @@ export default function TrackingPage() {
         )}
       </div>
 
+      {/* ── Tracking stopped banner ── */}
+      {!isLive && (
+        <div className="bg-gray-800 text-white px-5 py-3 text-center text-sm">
+          <span className="text-gray-300">
+            📍 El usuario dejó de compartir su ubicación en vivo.
+            El mapa muestra la <strong>última posición conocida</strong>.
+          </span>
+        </div>
+      )}
+
       {/* ── Stats bar ── */}
       <div className="bg-white border-t border-gray-100 px-5 py-4">
         <div className="max-w-3xl mx-auto grid grid-cols-3 gap-4 text-center">
@@ -210,8 +229,10 @@ export default function TrackingPage() {
             <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">
               Estado
             </p>
-            <p className="text-sm font-semibold" style={{ color: alertColor }}>
-              {isPanic ? 'Pánico' : 'Alerta activa'}
+            <p className="text-sm font-semibold" style={{ color: isLive ? alertColor : '#6B7280' }}>
+              {isLive
+                ? (isPanic ? 'Pánico · en vivo' : 'Alerta · en vivo')
+                : 'Última ubicación conocida'}
             </p>
           </div>
 
