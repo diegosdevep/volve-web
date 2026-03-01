@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "features": "Funciones",
+    "howItWorks": "Cómo funciona",
+    "download": "Descargar"
+  },
+  "hero": {
+    "badge": "App de seguridad personal",
+    "title": "Llegá a casa segura,\nsiempre.",
+    "subtitle": "Volvé alerta automáticamente a tus contactos de emergencia si no llegás bien. Sin check-in manual — funciona en segundo plano.",
+    "downloadIos": "Descargar en el App Store",
+    "learnMore": "Ver cómo funciona"
+  },
+  "features": {
+    "title": "Todo lo que necesitás para estar segura",
+    "subtitle": "Fácil de configurar, poderosa cuando más importa.",
+    "items": [
+      {
+        "title": "Alarma programada",
+        "description": "Configurá una sesión con con quién te reunís, dónde y a qué hora volvés. Si no desactivás la alarma, tus contactos son alertados automáticamente."
+      },
+      {
+        "title": "Botón de pánico",
+        "description": "Un toque envía una alerta inmediata a tus contactos de emergencia con tu ubicación en tiempo real. Sin configuración previa."
+      },
+      {
+        "title": "Código de coacción",
+        "description": "Si alguien te obliga a desactivar la alarma, ingresá un código secreto. La app parece apagarse — pero envía la alerta en silencio."
+      },
+      {
+        "title": "Ubicación en tiempo real",
+        "description": "Tu recorrido se registra durante las sesiones activas y se comparte con tus contactos cuando se activa una alerta."
+      },
+      {
+        "title": "Alertas multicanal",
+        "description": "Los contactos reciben alertas por WhatsApp y email con tu ubicación, recorrido y detalles de la sesión."
+      },
+      {
+        "title": "Privacidad por diseño",
+        "description": "Tus códigos de seguridad se guardan solo en el Keychain de tu dispositivo. Nunca en la nube."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "Cómo funciona",
+    "subtitle": "Tres pasos simples para estar protegida.",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Configurá una sesión",
+        "description": "Ingresá con quién te reunís, el lugar y tu hora estimada de regreso."
+      },
+      {
+        "step": "2",
+        "title": "Salí tranquila",
+        "description": "Volvé funciona en segundo plano, registrando tu recorrido y controlando el tiempo."
+      },
+      {
+        "step": "3",
+        "title": "Desactivá cuando llegues",
+        "description": "Ingresá tu código para desactivar. Si no lo hacés — tus contactos son alertados automáticamente."
+      }
+    ]
+  },
+  "download": {
+    "title": "Descargá Volvé",
+    "subtitle": "Disponible para iPhone. Gratis.",
+    "appStore": "Descargar en el App Store",
+    "comingSoon": "App Store — Próximamente"
+  },
+  "footer": {
+    "tagline": "Tu seguridad, en tus manos.",
+    "privacy": "Política de privacidad",
+    "terms": "Términos y condiciones",
+    "rights": "© 2026 Volvé. Todos los derechos reservados."
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "lastUpdated": "Última actualización: marzo 2026"
+  },
+  "terms": {
+    "title": "Términos y condiciones",
+    "lastUpdated": "Última actualización: marzo 2026"
+  }
+}

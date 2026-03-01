@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "download": "Download"
+  },
+  "hero": {
+    "badge": "Personal safety app",
+    "title": "Get home safe,\nevery time.",
+    "subtitle": "Volvé automatically alerts your emergency contacts if you don't make it home safely. No check-in needed — it works in the background.",
+    "downloadIos": "Download on the App Store",
+    "learnMore": "See how it works"
+  },
+  "features": {
+    "title": "Everything you need to stay safe",
+    "subtitle": "Simple to set up, powerful when it matters most.",
+    "items": [
+      {
+        "title": "Safety timer",
+        "description": "Set a session with who you're meeting, where, and when you'll be back. If you don't check in, your contacts are alerted automatically."
+      },
+      {
+        "title": "Panic button",
+        "description": "One press sends an immediate alert to your emergency contacts with your real-time location. No setup needed."
+      },
+      {
+        "title": "Duress code",
+        "description": "If someone forces you to disable the alarm, enter a secret code. The app appears to turn off — but silently sends the alert."
+      },
+      {
+        "title": "Live location sharing",
+        "description": "Your route is tracked during active sessions and shared with contacts when an alert is triggered."
+      },
+      {
+        "title": "Multi-channel alerts",
+        "description": "Emergency contacts receive alerts via WhatsApp and email with your location, route, and session details."
+      },
+      {
+        "title": "Private by design",
+        "description": "Your safety codes are stored only on your device's secure keychain. Never in the cloud."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "Three simple steps to stay protected.",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Set up a session",
+        "description": "Enter who you're meeting, the location, and your estimated return time."
+      },
+      {
+        "step": "2",
+        "title": "Go out safely",
+        "description": "Volvé runs in the background, tracking your route and watching the clock."
+      },
+      {
+        "step": "3",
+        "title": "Check in when you're home",
+        "description": "Enter your code to disarm. If you don't — your contacts are alerted automatically."
+      }
+    ]
+  },
+  "download": {
+    "title": "Download Volvé",
+    "subtitle": "Available for iPhone. Free to download.",
+    "appStore": "Download on the App Store",
+    "comingSoon": "App Store — Coming Soon"
+  },
+  "footer": {
+    "tagline": "Your safety, in your hands.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "© 2026 Volvé. All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: March 2026"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: March 2026"
+  }
+}
