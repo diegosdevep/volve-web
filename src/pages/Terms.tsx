@@ -173,43 +173,65 @@ function TermsEs() {
       <Section num="5" title="Contactos de emergencia">
         <P>Al agregar un contacto de emergencia, declarás que:</P>
         <UL items={[
-          'Tenés el consentimiento de esa persona para recibirá mensajes de alerta en tu nombre.',
+          'Tenés el consentimiento de esa persona para recibir mensajes de alerta en tu nombre.',
           'El número de teléfono y email que ingresás son correctos y pertenecen a esa persona.',
           'Esa persona entiende que puede recibir mensajes de emergencia de tu parte en cualquier momento.',
         ]} />
         <P>Volvé no verifica la identidad ni el consentimiento de los contactos. La responsabilidad de obtener ese consentimiento es tuya.</P>
       </Section>
 
-      <Section num="6" title="Propiedad intelectual">
+      <Section num="6" title="Suscripción premium">
+        <P>Volvé ofrece un plan gratuito con funcionalidad limitada y una suscripción premium mensual con funciones adicionales:</P>
+        <UL items={[
+          <><strong>Plan gratuito:</strong> 1 contacto de emergencia, 3 sesiones por mes, sin código de coacción ni extensiones de sesión.</>,
+          <><strong>Plan premium:</strong> contactos y sesiones ilimitados, código de coacción, extensiones de sesión.</>,
+        ]} />
+        <P>La suscripción se renueva automáticamente cada mes a través de Apple (App Store). Podés cancelarla en cualquier momento desde <strong>Configuración de tu iPhone → Suscripciones</strong>. Las políticas de reembolso de Apple aplican a todas las compras.</P>
+      </Section>
+
+      <Section num="7" title="Enlace de seguimiento en vivo">
+        <P>Al activarse una alerta, se genera un enlace de ubicación en tiempo real que se comparte con tus contactos de emergencia. Este enlace es accesible sin autenticación durante <strong>24 horas</strong>, después de las cuales expira automáticamente.</P>
+        <P>Volvé no se responsabiliza por el reenvío de este enlace a terceros por parte de tus contactos de emergencia.</P>
+      </Section>
+
+      <Section num="8" title="Disponibilidad del servicio">
+        <P>Volvé depende de servicios de terceros (Firebase, Twilio, Apple) y de la conectividad del dispositivo. No garantizamos disponibilidad ininterrumpida. Las interrupciones pueden ocurrir por mantenimiento, actualizaciones o factores fuera de nuestro control.</P>
+      </Section>
+
+      <Section num="9" title="Propiedad intelectual">
         <P>Volvé y todo su contenido (diseño, código, marca, textos, imágenes) son propiedad de Diego Maidana. No podés copiar, modificar, distribuir ni crear obras derivadas sin autorización escrita expresa.</P>
         <P>Al subir fotos o contenido a la app (fotos de contactos, de sesiones), mantenés la propiedad de ese contenido y nos otorgás una licencia limitada para almacenarlo y enviarlo en el contexto de las alertas de emergencia.</P>
       </Section>
 
-      <Section num="7" title="Limitación de responsabilidad">
+      <Section num="10" title="Limitación de responsabilidad">
         <P>En la máxima medida permitida por la ley:</P>
         <UL items={[
           'Volvé se provee "tal como está", sin garantías de ningún tipo.',
           'No somos responsables por daños directos, indirectos o incidentales derivados del uso o la imposibilidad de uso de la app.',
           'No garantizamos que las alertas se entreguen en todos los casos ni en un tiempo determinado.',
-          'No somos responsables por las acciones u omisiones de Twilio, SendGrid, Firebase ni otros terceros.',
+          'No somos responsables por las acciones u omisiones de Twilio, Gmail, Firebase ni otros terceros.',
         ]} />
         <Warning text="Si estás en una situación de riesgo real, no dependas exclusivamente de Volvé. Llamá al 911 o al número de emergencias de tu país." />
       </Section>
 
-      <Section num="8" title="Eliminación de cuenta">
+      <Section num="11" title="Eliminación de cuenta">
         <P>Podés eliminar tu cuenta y todos tus datos en cualquier momento desde <strong>Configuración → Eliminar cuenta</strong>. La eliminación es permanente e irreversible.</P>
         <P>Una vez eliminada la cuenta, no podemos recuperar ningún dato asociado a ella.</P>
       </Section>
 
-      <Section num="9" title="Modificaciones">
+      <Section num="12" title="Licencia de Apple">
+        <P>Este acuerdo complementa (no reemplaza) los términos del Contrato de Licencia de Aplicaciones Estándar de Apple (<em>Standard Licensed Application End User License Agreement</em>).</P>
+      </Section>
+
+      <Section num="13" title="Modificaciones">
         <P>Podemos modificar estos términos en cualquier momento. Los cambios significativos se notificarán dentro de la app. El uso continuado de Volvé después de la publicación de cambios implica la aceptación de los nuevos términos.</P>
       </Section>
 
-      <Section num="10" title="Legislación aplicable">
+      <Section num="14" title="Legislación aplicable">
         <P>Estos términos se rigen por las leyes de la República Argentina. Cualquier disputa se resolverá ante los tribunales competentes de la Ciudad Autónoma de Buenos Aires.</P>
       </Section>
 
-      <Section num="11" title="Contacto">
+      <Section num="15" title="Contacto">
         <P>Para consultas sobre estos términos:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>
@@ -277,36 +299,58 @@ function TermsEn() {
         <P>Volvé does not verify the identity or consent of contacts. Obtaining that consent is your responsibility.</P>
       </Section>
 
-      <Section num="6" title="Intellectual property">
+      <Section num="6" title="Premium subscription">
+        <P>Volvé offers a free plan with limited functionality and a monthly premium subscription with additional features:</P>
+        <UL items={[
+          <><strong>Free plan:</strong> 1 emergency contact, 3 sessions per month, no duress code or session extensions.</>,
+          <><strong>Premium plan:</strong> unlimited contacts and sessions, duress code, session extensions.</>,
+        ]} />
+        <P>The subscription auto-renews monthly through Apple (App Store). You can cancel at any time from <strong>iPhone Settings → Subscriptions</strong>. Apple's refund policies apply to all purchases.</P>
+      </Section>
+
+      <Section num="7" title="Live tracking link">
+        <P>When an alert is triggered, a real-time location link is generated and shared with your emergency contacts. This link is accessible without authentication for <strong>24 hours</strong>, after which it automatically expires.</P>
+        <P>Volvé is not responsible for the forwarding of this link to third parties by your emergency contacts.</P>
+      </Section>
+
+      <Section num="8" title="Service availability">
+        <P>Volvé depends on third-party services (Firebase, Twilio, Apple) and device connectivity. We do not guarantee uninterrupted availability. Interruptions may occur due to maintenance, updates, or factors beyond our control.</P>
+      </Section>
+
+      <Section num="9" title="Intellectual property">
         <P>Volvé and all its content (design, code, brand, text, images) are the property of Diego Maidana. You may not copy, modify, distribute, or create derivative works without express written authorization.</P>
         <P>When you upload photos or content to the app (contact photos, session photos), you retain ownership of that content and grant us a limited license to store and send it in the context of emergency alerts.</P>
       </Section>
 
-      <Section num="7" title="Limitation of liability">
+      <Section num="10" title="Limitation of liability">
         <P>To the maximum extent permitted by law:</P>
         <UL items={[
           'Volvé is provided "as is", without warranties of any kind.',
           'We are not liable for direct, indirect, or incidental damages arising from the use or inability to use the app.',
           'We do not guarantee that alerts will be delivered in all cases or within any specific time.',
-          'We are not responsible for the actions or omissions of Twilio, SendGrid, Firebase, or other third parties.',
+          'We are not responsible for the actions or omissions of Twilio, Gmail, Firebase, or other third parties.',
         ]} />
         <Warning text="If you are in a real risk situation, do not rely exclusively on Volvé. Call 911 or your country's emergency number." />
       </Section>
 
-      <Section num="8" title="Account deletion">
+      <Section num="11" title="Account deletion">
         <P>You can delete your account and all your data at any time from <strong>Settings → Delete account</strong>. Deletion is permanent and irreversible.</P>
         <P>Once the account is deleted, we cannot recover any data associated with it.</P>
       </Section>
 
-      <Section num="9" title="Modifications">
+      <Section num="12" title="Apple license">
+        <P>This agreement supplements (does not replace) the terms of Apple's <em>Standard Licensed Application End User License Agreement</em>.</P>
+      </Section>
+
+      <Section num="13" title="Modifications">
         <P>We may modify these terms at any time. Significant changes will be notified within the app. Continued use of Volvé after changes are published constitutes acceptance of the new terms.</P>
       </Section>
 
-      <Section num="10" title="Governing law">
+      <Section num="14" title="Governing law">
         <P>These terms are governed by the laws of the Argentine Republic. Any dispute will be resolved before the competent courts of the Autonomous City of Buenos Aires.</P>
       </Section>
 
-      <Section num="11" title="Contact">
+      <Section num="15" title="Contact">
         <P>For inquiries about these terms:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>

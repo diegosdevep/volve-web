@@ -162,14 +162,19 @@ function PrivacyEs() {
         <Table rows={[
           ['Firebase / Google', 'Autenticación de usuarios, base de datos Firestore y almacenamiento de fotos. Datos alojados en servidores de Google.'],
           ['Twilio', 'Envío de mensajes de WhatsApp a tus contactos de emergencia cuando se dispara una alerta.'],
-          ['SendGrid', 'Envío de emails a tus contactos de emergencia cuando se dispara una alerta.'],
+          ['Gmail (Google)', 'Envío de emails a tus contactos de emergencia cuando se dispara una alerta.'],
+          ['Google Maps', 'Generación de mapas estáticos incluidos en los emails de alerta.'],
+          ['Vercel', 'Hosting de la página de seguimiento en vivo que reciben tus contactos de emergencia.'],
+          ['Apple (StoreKit)', 'Procesamiento de pagos para la suscripción premium. No almacenamos datos financieros.'],
         ]} />
         <P>Estos terceros solo reciben los datos estrictamente necesarios para cumplir su función (por ej., Twilio solo recibe el número de teléfono y el mensaje de alerta).</P>
       </Section>
 
       <Section num="4" title="Ubicación">
-        <P>La app solicita permiso de ubicación <strong>en primer plano</strong> durante sesiones activas para registrar los puntos de tu recorrido. Este recorrido se incluye en la alerta que reciben tus contactos para ayudar a localizarte.</P>
-        <P>No rastreamos tu ubicación en segundo plano fuera de una sesión activa. Podés revocar el permiso en cualquier momento desde Configuración del sistema.</P>
+        <P>La app solicita permiso de ubicación durante sesiones activas para registrar los puntos de tu recorrido. <strong>Durante una sesión activa, la app puede registrar tu ubicación en segundo plano</strong> para garantizar el seguimiento continuo, incluso si la app se cierra o pasa a segundo plano.</P>
+        <P>En caso de uso del código de coacción, la app continúa registrando ubicación durante un período adicional para proteger tu seguridad. Este comportamiento es intencional y forma parte del mecanismo de protección.</P>
+        <P>Los enlaces de ubicación en vivo que se envían a tus contactos de emergencia <strong>expiran automáticamente 24 horas</strong> después de activarse la alerta.</P>
+        <P>No rastreamos tu ubicación fuera de una sesión activa. Podés revocar el permiso en cualquier momento desde Configuración del sistema.</P>
       </Section>
 
       <Section num="5" title="Retención y eliminación">
@@ -178,7 +183,16 @@ function PrivacyEs() {
         <Callout icon="ℹ️" text="Los códigos guardados en el Keychain del dispositivo no se eliminan automáticamente al borrar la cuenta, ya que están fuera de los servidores de Volvé. Podés borrarlos eliminando la app de tu dispositivo." />
       </Section>
 
-      <Section num="6" title="Seguridad">
+      <Section num="6" title="Suscripción premium y pagos">
+        <P>Volvé ofrece una suscripción premium opcional con funciones adicionales. Los pagos se procesan exclusivamente a través de <strong>Apple (App Store)</strong>. No almacenamos datos de tarjetas de crédito, débito ni ninguna información financiera.</P>
+        <P>Las políticas de reembolso de Apple aplican a todas las compras realizadas dentro de la app.</P>
+      </Section>
+
+      <Section num="7" title="Transferencias internacionales de datos">
+        <P>Tus datos se almacenan en servidores de Google (Firebase) ubicados en Estados Unidos. Los mensajes de alerta se envían a través de Twilio (WhatsApp) y Gmail, cuyos servidores también se encuentran en EE.UU.</P>
+      </Section>
+
+      <Section num="8" title="Seguridad">
         <UL items={[
           'Todas las comunicaciones entre la app y Firebase van cifradas con TLS.',
           'Las reglas de seguridad de Firestore garantizan que solo el usuario autenticado puede leer y modificar sus propios documentos.',
@@ -187,15 +201,15 @@ function PrivacyEs() {
         ]} />
       </Section>
 
-      <Section num="7" title="Privacidad de menores">
+      <Section num="9" title="Privacidad de menores">
         <P>Volvé no está dirigida a personas menores de 13 años. No recopilamos intencionalmente datos de menores. Si creés que un menor registró una cuenta, escribinos a <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, textDecoration: 'none', fontWeight: 600 }}>soporte@volve-app.com</a> y eliminaremos la cuenta.</P>
       </Section>
 
-      <Section num="8" title="Cambios en esta política">
+      <Section num="10" title="Cambios en esta política">
         <P>Podemos actualizar esta política ante cambios en la app o requerimientos legales. Te notificaremos cambios importantes dentro de la app. La fecha de última actualización siempre estará visible al inicio de esta página.</P>
       </Section>
 
-      <Section num="9" title="Contacto">
+      <Section num="11" title="Contacto">
         <P>Para consultas sobre privacidad o para ejercer tus derechos de acceso, rectificación o eliminación de datos:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>
@@ -237,14 +251,19 @@ function PrivacyEn() {
         <Table rows={[
           ['Firebase / Google', 'User authentication, Firestore database and photo storage. Data hosted on Google servers.'],
           ['Twilio', 'Sending WhatsApp messages to your emergency contacts when an alert is triggered.'],
-          ['SendGrid', 'Sending emails to your emergency contacts when an alert is triggered.'],
+          ['Gmail (Google)', 'Sending emails to your emergency contacts when an alert is triggered.'],
+          ['Google Maps', 'Generating static maps included in alert emails.'],
+          ['Vercel', 'Hosting the live tracking page that your emergency contacts receive.'],
+          ['Apple (StoreKit)', 'Payment processing for the premium subscription. We do not store financial data.'],
         ]} />
         <P>These third parties only receive the data strictly necessary to fulfill their function (e.g., Twilio only receives the phone number and alert message).</P>
       </Section>
 
       <Section num="4" title="Location">
-        <P>The app requests <strong>foreground location</strong> permission during active sessions to record your route points. This route is included in the alert your contacts receive to help locate you.</P>
-        <P>We do not track your location in the background outside of an active session. You can revoke this permission at any time from system Settings.</P>
+        <P>The app requests location permission during active sessions to record your route points. <strong>During an active session, the app may record your location in the background</strong> to ensure continuous tracking, even if the app is closed or sent to the background.</P>
+        <P>When a duress code is used, the app continues recording location for an additional period to protect your safety. This behavior is intentional and is part of the protection mechanism.</P>
+        <P>Live location links sent to your emergency contacts <strong>automatically expire 24 hours</strong> after the alert is triggered.</P>
+        <P>We do not track your location outside of an active session. You can revoke this permission at any time from system Settings.</P>
       </Section>
 
       <Section num="5" title="Retention and deletion">
@@ -253,7 +272,16 @@ function PrivacyEn() {
         <Callout icon="ℹ️" text="Codes saved in the device Keychain are not automatically deleted when the account is deleted, as they are outside Volvé's servers. You can delete them by uninstalling the app from your device." />
       </Section>
 
-      <Section num="6" title="Security">
+      <Section num="6" title="Premium subscription and payments">
+        <P>Volvé offers an optional premium subscription with additional features. Payments are processed exclusively through <strong>Apple (App Store)</strong>. We do not store credit card, debit card, or any financial information.</P>
+        <P>Apple's refund policies apply to all purchases made within the app.</P>
+      </Section>
+
+      <Section num="7" title="International data transfers">
+        <P>Your data is stored on Google (Firebase) servers located in the United States. Alert messages are sent through Twilio (WhatsApp) and Gmail, whose servers are also located in the U.S.</P>
+      </Section>
+
+      <Section num="8" title="Security">
         <UL items={[
           'All communications between the app and Firebase are encrypted with TLS.',
           'Firestore security rules ensure only the authenticated user can read and modify their own documents.',
@@ -262,15 +290,15 @@ function PrivacyEn() {
         ]} />
       </Section>
 
-      <Section num="7" title="Children's privacy">
+      <Section num="9" title="Children's privacy">
         <P>Volvé is not directed at children under 13. We do not intentionally collect data from minors. If you believe a minor has registered an account, contact us at <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, textDecoration: 'none', fontWeight: 600 }}>soporte@volve-app.com</a> and we will delete the account.</P>
       </Section>
 
-      <Section num="8" title="Changes to this policy">
+      <Section num="10" title="Changes to this policy">
         <P>We may update this policy due to app changes or legal requirements. We will notify you of significant changes within the app. The last updated date will always be visible at the top of this page.</P>
       </Section>
 
-      <Section num="9" title="Contact">
+      <Section num="11" title="Contact">
         <P>For privacy inquiries or to exercise your rights of access, rectification, or data deletion:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>
