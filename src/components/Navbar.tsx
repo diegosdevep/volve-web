@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import logoUrl from '../assets/logo.svg'
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
@@ -12,7 +13,7 @@ export default function Navbar() {
       backgroundColor: 'rgba(255,255,255,0.85)',
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)',
-      borderBottom: '1px solid #F3F4F6',
+      borderBottom: '1px solid #E1DFF0',
     }}>
       <div style={{
         maxWidth: 1100, margin: '0 auto', padding: '0 32px',
@@ -21,14 +22,8 @@ export default function Navbar() {
 
         {/* Logo */}
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', flexShrink: 0 }}>
-          <div style={{
-            width: 34, height: 34, borderRadius: 10,
-            background: 'linear-gradient(135deg, #7C6CFF, #B8AEFF)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <span style={{ color: '#fff', fontSize: 14, fontWeight: 700 }}>V</span>
-          </div>
-          <span style={{ fontWeight: 700, fontSize: 17, color: '#111827', letterSpacing: '-0.3px' }}>Volvé</span>
+          <img src={logoUrl} alt="Volvé" style={{ width: 32, height: 'auto', display: 'block' }} />
+          <span style={{ fontWeight: 700, fontSize: 17, color: '#2E2E38', letterSpacing: '-0.3px' }}>Volvé</span>
         </a>
 
         {/* Desktop links */}
@@ -54,8 +49,8 @@ export default function Navbar() {
             style={{
               fontSize: 14, fontWeight: 600, color: '#fff',
               padding: '9px 22px', borderRadius: 999, textDecoration: 'none',
-              backgroundColor: '#7C6CFF',
-              boxShadow: '0 2px 12px rgba(124,108,255,0.35)',
+              backgroundColor: '#6E6BB3',
+              boxShadow: '0 2px 12px rgba(110,107,179,0.28)',
               transition: 'opacity 0.15s',
             }}
             onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
@@ -134,7 +129,7 @@ export default function Navbar() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 14, fontWeight: 600, color: '#fff',
               padding: '12px', borderRadius: 12, textDecoration: 'none',
-              backgroundColor: '#7C6CFF',
+              backgroundColor: '#6E6BB3',
             }}
             onClick={() => setMobileOpen(false)}
           >

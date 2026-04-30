@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import logoUrl from '../assets/logo.svg'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -19,13 +20,13 @@ export default function Footer() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
               <div style={{
-                width: 34, height: 34,
+                width: 36, height: 36,
                 borderRadius: 10,
-                background: 'linear-gradient(135deg, #7C6CFF, #B8AEFF)',
+                background: 'rgba(110,107,179,0.18)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0,
               }}>
-                <span style={{ color: '#fff', fontSize: 14, fontWeight: 700 }}>V</span>
+                <img src={logoUrl} alt="" style={{ width: 22, height: 'auto', display: 'block' }} />
               </div>
               <span style={{ color: '#fff', fontWeight: 700, fontSize: 17, letterSpacing: '-0.3px' }}>Volvé</span>
             </div>
@@ -105,7 +106,7 @@ export default function Footer() {
           <p style={{ fontSize: 12, color: '#4B5563', margin: 0 }}>{t('footer.rights')}</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: '#4B5563' }}>
             <span>Hecho con</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="#EF4444">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#E67E73">
               <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/>
             </svg>
             <span>en Argentina</span>

@@ -64,7 +64,7 @@ const IconApple = () => (
 function IPhoneMockup() {
   return (
     <div style={{ position: 'relative', width: 232, height: 476, flexShrink: 0 }}>
-      <div style={{ position: 'absolute', top: '20%', left: '5%', right: '5%', bottom: '-5%', background: 'radial-gradient(ellipse, rgba(124,108,255,0.22) 0%, transparent 70%)', filter: 'blur(24px)' }} />
+      <div style={{ position: 'absolute', top: '20%', left: '5%', right: '5%', bottom: '-5%', background: 'radial-gradient(ellipse, rgba(110,107,179,0.22) 0%, transparent 70%)', filter: 'blur(24px)' }} />
       <div style={{ position: 'absolute', inset: 0, borderRadius: 42, background: 'linear-gradient(160deg, #2e2e2e 0%, #1a1a1a 100%)', boxShadow: '0 32px 64px -16px rgba(0,0,0,0.45), 0 12px 28px -8px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)' }}>
         <div style={{ position: 'absolute', top: 7, left: 7, right: 7, bottom: 7, borderRadius: 36, overflow: 'hidden', background: 'linear-gradient(160deg, #0c0820 0%, #180e3a 50%, #0d1838 100%)' }}>
           <div style={{ position: 'absolute', top: 10, left: '50%', transform: 'translateX(-50%)', width: 84, height: 25, background: '#000', borderRadius: 16, zIndex: 10 }} />
@@ -87,7 +87,7 @@ function IPhoneMockup() {
               </div>
             </div>
             <div style={{ padding: '0 14px 10px' }}>
-              <div style={{ background: 'rgba(124,108,255,0.1)', border: '1px solid rgba(124,108,255,0.2)', borderRadius: 20, padding: '14px 12px', textAlign: 'center' }}>
+              <div style={{ background: 'rgba(110,107,179,0.10)', border: '1px solid rgba(110,107,179,0.18)', borderRadius: 20, padding: '14px 12px', textAlign: 'center' }}>
                 <div style={{ fontSize: 8.5, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginBottom: 4 }}>Tiempo restante</div>
                 <div style={{ fontSize: 44, fontWeight: 700, color: '#fff', letterSpacing: -2, lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>47:23</div>
                 <div style={{ fontSize: 8.5, color: 'rgba(184,174,255,0.4)', marginTop: 4 }}>Se activa a las 22:30</div>
@@ -106,7 +106,7 @@ function IPhoneMockup() {
             </div>
             <div style={{ flex: 1 }} />
             <div style={{ padding: '0 14px 22px' }}>
-              <div style={{ background: 'linear-gradient(135deg, #7C6CFF, #B8AEFF)', borderRadius: 16, padding: '11px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: 11.5, fontWeight: 600, color: '#fff' }}>
+              <div style={{ background: 'linear-gradient(135deg, #6E6BB3, #C8C6F2)', borderRadius: 16, padding: '11px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: 11.5, fontWeight: 600, color: '#fff' }}>
                 <svg width="12" height="12" fill="none" stroke="white" strokeWidth={2.2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
                 Desactivar alarma
               </div>
@@ -127,7 +127,7 @@ function IPhoneMockup() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EDE9FE', color: '#7C6CFF', padding: '5px 14px', borderRadius: 99, fontSize: 12, fontWeight: 600, marginBottom: 16, letterSpacing: '0.02em' }}>
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EAE9F4', color: '#6E6BB3', padding: '5px 14px', borderRadius: 99, fontSize: 12, fontWeight: 600, marginBottom: 16, letterSpacing: '0.02em' }}>
       {children}
     </div>
   )
@@ -163,7 +163,7 @@ export default function Home() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 32px 60px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 48, alignItems: 'center' }}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EDE9FE', color: '#7C6CFF', padding: '6px 14px', borderRadius: 99, fontSize: 13, fontWeight: 600, marginBottom: 24 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EAE9F4', color: '#6E6BB3', padding: '6px 14px', borderRadius: 99, fontSize: 13, fontWeight: 600, marginBottom: 24 }}>
                 <IconShield size={13} />
                 {isEs ? 'App de seguridad personal' : 'Personal safety app'}
               </div>
@@ -176,7 +176,7 @@ export default function Home() {
                   : 'Set up a session before you go out. If you don\'t deactivate it in time, your trusted contacts automatically receive an alert with all the information.'}
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 28 }}>
-                <a href="#download" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, background: '#7C6CFF', color: '#fff', padding: '13px 22px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 18px rgba(124,108,255,0.4)' }}>
+                <a href="#download" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, background: '#6E6BB3', color: '#fff', padding: '13px 22px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 18px rgba(110,107,179,0.32)' }}>
                   <IconApple />
                   {isEs ? 'Descargar para iPhone' : 'Download for iPhone'}
                 </a>
@@ -213,7 +213,7 @@ export default function Home() {
               { value: isEs ? 'Gratis' : 'Free', label: isEs ? 'Para descargar' : 'To download' },
             ].map((stat, i) => (
               <div key={i} style={{ textAlign: 'center', padding: '0 16px', borderLeft: i > 0 ? '1px solid #F3F4F6' : 'none' }}>
-                <div style={{ fontSize: 26, fontWeight: 700, color: '#7C6CFF', marginBottom: 4 }}>{stat.value}</div>
+                <div style={{ fontSize: 26, fontWeight: 700, color: '#6E6BB3', marginBottom: 4 }}>{stat.value}</div>
                 <div style={{ fontSize: 11, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 500 }}>{stat.label}</div>
               </div>
             ))}
@@ -248,7 +248,7 @@ export default function Home() {
                   : ['Dating app meetups', 'Meetings with strangers', 'Lonely nighttime routes', 'Rides with unknown drivers', 'Any risky situation']
                 ).map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <div style={{ width: 24, height: 24, borderRadius: '50%', background: '#EDE9FE', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#7C6CFF' }}>
+                    <div style={{ width: 24, height: 24, borderRadius: '50%', background: '#EAE9F4', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#6E6BB3' }}>
                       <IconCheck size={13} />
                     </div>
                     <span style={{ fontSize: 15, color: '#374151' }}>{item}</span>
@@ -296,12 +296,12 @@ export default function Home() {
 
           <div style={{ position: 'relative' }}>
             {/* Connecting line */}
-            <div style={{ position: 'absolute', left: 27, top: 0, bottom: 0, width: 2, background: 'linear-gradient(180deg, #7C6CFF 0%, #B8AEFF 100%)', opacity: 0.2 }} />
+            <div style={{ position: 'absolute', left: 27, top: 0, bottom: 0, width: 2, background: 'linear-gradient(180deg, #6E6BB3 0%, #C8C6F2 100%)', opacity: 0.2 }} />
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {(isEs ? [
                 {
-                  num: '1', icon: <IconUser size={18} />, color: '#7C6CFF', bg: '#EDE9FE',
+                  num: '1', icon: <IconUser size={18} />, color: '#6E6BB3', bg: '#EAE9F4',
                   title: 'Configurás la sesión',
                   desc: 'Antes de salir, abrís Volvé y cargás con quién vas a estar: nombre, foto, redes sociales, número de teléfono. Agregás los lugares a los que vas a ir y la hora estimada de regreso.',
                 },
@@ -327,7 +327,7 @@ export default function Home() {
                 },
               ] : [
                 {
-                  num: '1', icon: <IconUser size={18} />, color: '#7C6CFF', bg: '#EDE9FE',
+                  num: '1', icon: <IconUser size={18} />, color: '#6E6BB3', bg: '#EAE9F4',
                   title: 'Set up your session',
                   desc: 'Before going out, open Volvé and enter who you\'ll be with: name, photo, social media, phone number. Add the places you\'re going and your estimated return time.',
                 },
@@ -389,21 +389,21 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 16 }}>
             {(isEs ? [
-              { icon: <IconUser size={20} />, color: '#7C6CFF', bg: '#EDE9FE', title: 'Datos de la persona', desc: 'Nombre completo, foto, número de teléfono, Instagram, Twitter/X y cualquier otro dato que hayas cargado sobre quien te acompañaba.' },
+              { icon: <IconUser size={20} />, color: '#6E6BB3', bg: '#EAE9F4', title: 'Datos de la persona', desc: 'Nombre completo, foto, número de teléfono, Instagram, Twitter/X y cualquier otro dato que hayas cargado sobre quien te acompañaba.' },
               { icon: <IconPhoto size={20} />, color: '#9333EA', bg: '#F3E8FF', title: 'Tu vestimenta', desc: 'La foto que sacaste antes de salir mostrando exactamente qué llevabas puesto. Fundamental para una búsqueda rápida.' },
               { icon: <IconMap size={20} />, color: '#2563EB', bg: '#DBEAFE', title: 'Última ubicación GPS', desc: 'Las coordenadas exactas de tu última posición conocida, con enlace directo a Google Maps para que puedan ir al lugar.' },
               { icon: <IconClock size={20} />, color: '#D97706', bg: '#FEF3C7', title: 'Recorrido completo', desc: 'Todos los lugares que registraste durante la sesión: desde dónde empezaste hasta el último punto conocido.' },
               { icon: <IconBell size={20} />, color: '#EF4444', bg: '#FEE2E2', title: 'Hora y duración', desc: 'Cuándo empezó la sesión, hasta cuándo tenía que durar y cuánto tiempo pasó desde que debías haber llegado.' },
               { icon: <IconShield size={20} />, color: '#16A34A', bg: '#DCFCE7', title: 'Qué deben hacer', desc: 'El mensaje incluye instrucciones claras: intentar contactarte, llamar al 911 con la información provista, y actuar rápido.' },
             ] : [
-              { icon: <IconUser size={20} />, color: '#7C6CFF', bg: '#EDE9FE', title: 'Person\'s details', desc: 'Full name, photo, phone number, Instagram, Twitter/X and any other info you entered about who you were with.' },
+              { icon: <IconUser size={20} />, color: '#6E6BB3', bg: '#EAE9F4', title: 'Person\'s details', desc: 'Full name, photo, phone number, Instagram, Twitter/X and any other info you entered about who you were with.' },
               { icon: <IconPhoto size={20} />, color: '#9333EA', bg: '#F3E8FF', title: 'Your outfit', desc: 'The photo you took before leaving showing exactly what you were wearing. Essential for a quick search.' },
               { icon: <IconMap size={20} />, color: '#2563EB', bg: '#DBEAFE', title: 'Last GPS location', desc: 'Exact coordinates of your last known position, with a direct link to Google Maps so they can go to the location.' },
               { icon: <IconClock size={20} />, color: '#D97706', bg: '#FEF3C7', title: 'Full route', desc: 'All the places you recorded during the session: from where you started to the last known point.' },
               { icon: <IconBell size={20} />, color: '#EF4444', bg: '#FEE2E2', title: 'Time and duration', desc: 'When the session started, how long it was supposed to last, and how much time has passed since you should have returned.' },
               { icon: <IconShield size={20} />, color: '#16A34A', bg: '#DCFCE7', title: 'What to do', desc: 'The message includes clear instructions: try to contact you, call 911 with the provided information, and act fast.' },
             ]).map((item, i) => (
-              <div key={i} style={{ background: '#fff', borderRadius: 18, padding: '24px 20px', border: '1px solid #EDE9FE', boxShadow: '0 2px 12px rgba(124,108,255,0.05)' }}>
+              <div key={i} style={{ background: '#fff', borderRadius: 18, padding: '24px 20px', border: '1px solid #EAE9F4', boxShadow: '0 2px 12px rgba(110,107,179,0.06)' }}>
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: item.bg, color: item.color, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
                   {item.icon}
                 </div>
@@ -450,8 +450,8 @@ export default function Home() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {/* Code comparison */}
-              <div style={{ background: '#F8F7FF', borderRadius: 20, padding: 24, border: '1px solid #EDE9FE' }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#7C6CFF', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ background: '#F8F7FF', borderRadius: 20, padding: 24, border: '1px solid #EAE9F4' }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#6E6BB3', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   {isEs ? 'Ejemplo' : 'Example'}
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
@@ -476,7 +476,7 @@ export default function Home() {
                     : '🔴 You enter 5678 → App looks normal → In 3 seconds, your contacts receive the emergency alert'}
                 </div>
               </div>
-              <div style={{ background: '#EDE9FE', borderRadius: 14, padding: '16px 20px' }}>
+              <div style={{ background: '#EAE9F4', borderRadius: 14, padding: '16px 20px' }}>
                 <div style={{ fontSize: 13, color: '#4C1D95', lineHeight: 1.6 }}>
                   {isEs
                     ? '🔒 Los códigos nunca se guardan en la nube — solo en el Keychain seguro de tu iPhone. Ni siquiera Volvé los conoce.'
@@ -568,26 +568,26 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
             {(isEs ? [
               { icon: <IconClock size={20} />, bg: '#FEF3C7', color: '#D97706', title: 'Temporizador de seguridad', desc: 'Configurás una hora de regreso. Si no desactivás a tiempo, la alarma se dispara automáticamente.' },
-              { icon: <IconUser size={20} />, bg: '#EDE9FE', color: '#7C6CFF', title: 'Perfil de la persona', desc: 'Nombre, foto, redes sociales, teléfono. Todo lo que alguien necesita saber sobre con quién estabas.' },
+              { icon: <IconUser size={20} />, bg: '#EAE9F4', color: '#6E6BB3', title: 'Perfil de la persona', desc: 'Nombre, foto, redes sociales, teléfono. Todo lo que alguien necesita saber sobre con quién estabas.' },
               { icon: <IconPhoto size={20} />, bg: '#F3E8FF', color: '#9333EA', title: 'Fotos de vestimenta', desc: 'Registrás qué llevabas puesto. En una búsqueda, los primeros minutos son los más importantes.' },
               { icon: <IconMap size={20} />, bg: '#DBEAFE', color: '#2563EB', title: 'Múltiples ubicaciones', desc: 'Agregás todos los lugares que visitarás. Tu recorrido completo queda registrado.' },
               { icon: <IconBell size={20} />, bg: '#DCFCE7', color: '#16A34A', title: 'Alerta por email y SMS', desc: 'Tus contactos reciben la información por ambos canales para máxima cobertura.' },
               { icon: <IconKey size={20} />, bg: '#FEE2E2', color: '#EF4444', title: 'Código de coacción', desc: 'Un código alternativo que parece desactivar pero envía la alerta silenciosamente.' },
               { icon: <IconBolt size={20} />, bg: '#FEF9C3', color: '#CA8A04', title: 'Botón de pánico', desc: 'Alerta inmediata con un toque sostenido. Sin configuración previa necesaria.' },
-              { icon: <IconShield size={20} />, bg: '#EDE9FE', color: '#7C6CFF', title: 'Historial de sesiones', desc: 'Registro completo de todas tus sesiones para hacer seguimiento de tu actividad.' },
+              { icon: <IconShield size={20} />, bg: '#EAE9F4', color: '#6E6BB3', title: 'Historial de sesiones', desc: 'Registro completo de todas tus sesiones para hacer seguimiento de tu actividad.' },
               { icon: <IconLock size={20} />, bg: '#DCFCE7', color: '#16A34A', title: 'Keychain seguro', desc: 'Tus códigos se guardan en el Keychain de iOS, nunca en la nube. Máxima privacidad.' },
             ] : [
               { icon: <IconClock size={20} />, bg: '#FEF3C7', color: '#D97706', title: 'Safety timer', desc: 'You set a return time. If you don\'t deactivate in time, the alarm triggers automatically.' },
-              { icon: <IconUser size={20} />, bg: '#EDE9FE', color: '#7C6CFF', title: 'Person\'s profile', desc: 'Name, photo, social media, phone. Everything someone needs to know about who you were with.' },
+              { icon: <IconUser size={20} />, bg: '#EAE9F4', color: '#6E6BB3', title: 'Person\'s profile', desc: 'Name, photo, social media, phone. Everything someone needs to know about who you were with.' },
               { icon: <IconPhoto size={20} />, bg: '#F3E8FF', color: '#9333EA', title: 'Outfit photos', desc: 'Record what you were wearing. In a search, the first minutes are the most important.' },
               { icon: <IconMap size={20} />, bg: '#DBEAFE', color: '#2563EB', title: 'Multiple locations', desc: 'Add all the places you\'ll visit. Your complete route is recorded.' },
               { icon: <IconBell size={20} />, bg: '#DCFCE7', color: '#16A34A', title: 'Email and SMS alert', desc: 'Your contacts receive the information through both channels for maximum coverage.' },
               { icon: <IconKey size={20} />, bg: '#FEE2E2', color: '#EF4444', title: 'Duress code', desc: 'An alternate code that appears to deactivate but silently sends the alert.' },
               { icon: <IconBolt size={20} />, bg: '#FEF9C3', color: '#CA8A04', title: 'Panic button', desc: 'Immediate alert with a long press. No prior setup required.' },
-              { icon: <IconShield size={20} />, bg: '#EDE9FE', color: '#7C6CFF', title: 'Session history', desc: 'Complete record of all your sessions to track your activity.' },
+              { icon: <IconShield size={20} />, bg: '#EAE9F4', color: '#6E6BB3', title: 'Session history', desc: 'Complete record of all your sessions to track your activity.' },
               { icon: <IconLock size={20} />, bg: '#DCFCE7', color: '#16A34A', title: 'Secure Keychain', desc: 'Your codes are stored in iOS Keychain, never in the cloud. Maximum privacy.' },
             ]).map((f, i) => (
-              <div key={i} style={{ background: '#fff', borderRadius: 18, padding: '22px 20px', border: '1.5px solid #E9E6FF', boxShadow: '0 2px 12px rgba(124,108,255,0.05)' }}>
+              <div key={i} style={{ background: '#fff', borderRadius: 18, padding: '22px 20px', border: '1.5px solid #EAE9F4', boxShadow: '0 2px 12px rgba(110,107,179,0.06)' }}>
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: f.bg, color: f.color, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
                   {f.icon}
                 </div>
@@ -638,8 +638,8 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div style={{ background: '#F8F7FF', borderRadius: 24, padding: 32, border: '1px solid #EDE9FE' }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: '#7C6CFF', marginBottom: 20 }}>
+            <div style={{ background: '#F8F7FF', borderRadius: 24, padding: 32, border: '1px solid #EAE9F4' }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: '#6E6BB3', marginBottom: 20 }}>
                 {isEs ? '¿Dónde vive cada dato?' : 'Where does each piece of data live?'}
               </div>
               {(isEs ? [
@@ -659,7 +659,7 @@ export default function Home() {
                 { label: 'GPS location', location: 'Only when alert fires', safe: true },
                 { label: 'Your password', location: 'Firebase Auth', safe: true },
               ]).map((row, i) => (
-                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderTop: i > 0 ? '1px solid #EDE9FE' : 'none' }}>
+                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderTop: i > 0 ? '1px solid #EAE9F4' : 'none' }}>
                   <span style={{ fontSize: 13, color: '#374151' }}>{row.label}</span>
                   <span style={{ fontSize: 12, background: '#DCFCE7', color: '#166534', padding: '3px 10px', borderRadius: 6, fontWeight: 500 }}>{row.location}</span>
                 </div>
@@ -710,7 +710,7 @@ export default function Home() {
       </section>
 
       {/* ── DOWNLOAD ── */}
-      <section id="download" style={{ background: 'linear-gradient(135deg, #6758f0 0%, #7C6CFF 60%, #a89bff 100%)', padding: '88px 32px', textAlign: 'center' }}>
+      <section id="download" style={{ background: 'linear-gradient(135deg, #5C5A99 0%, #6E6BB3 60%, #C8C6F2 100%)', padding: '88px 32px', textAlign: 'center' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.9)', padding: '6px 14px', borderRadius: 99, fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 22 }}>
             {isEs ? 'Disponible para iPhone. Gratis.' : 'Available for iPhone. Free.'}

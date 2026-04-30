@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-const PURPLE = '#7C6CFF'
+const PURPLE = '#6E6BB3'
 const PURPLE_LIGHT = '#F5F3FF'
 const PURPLE_BORDER = '#E5E0FF'
 
@@ -13,7 +13,7 @@ export default function Privacy() {
 
       {/* Hero */}
       <div style={{
-        background: 'linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%)',
+        background: 'linear-gradient(135deg, #F5F3FF 0%, #EAE9F4 100%)',
         borderBottom: '1px solid #E5E0FF',
         padding: '80px 24px 48px',
       }}>
