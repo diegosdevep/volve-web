@@ -7,11 +7,50 @@
 }
 
 :root {
-  --volve-violet: #7C6CFF;
-  --volve-lavender: #B8AEFF;
-  --volve-coral: #F87171;
-  --volve-sage: #22C55E;
-  --volve-graphite: #374151;
+  /* Brand */
+  --volve-violet: #6E6BB3;
+  --volve-violet-soft: rgba(110, 107, 179, 0.12);
+  --volve-violet-strong: #5C5A99;
+  --volve-lavender: #C8C6F2;
+  --volve-mint: #DCEFE2;
+  --volve-coral: #E67E73;
+  --volve-coral-soft: rgba(230, 126, 115, 0.14);
+  --volve-sage: #A8C3A0;
+  --volve-sage-soft: rgba(168, 195, 160, 0.22);
+  --volve-amber: #F59E0B;
+  --volve-amber-soft: rgba(245, 158, 11, 0.16);
+
+  /* Surfaces */
+  --volve-bg: #F2F2F7;
+  --volve-card-bg: #FFFFFF;
+  --volve-border: #E1DFF0;
+  --volve-off-white: #F7F7FA;
+
+  /* Text */
+  --volve-text-primary: #2E2E38;
+  --volve-text-secondary: #8E8E97;
+
+  /* Elevation */
+  --volve-shadow-sm: 0 4px 12px rgba(110, 107, 179, 0.06);
+  --volve-shadow-md: 0 12px 32px rgba(110, 107, 179, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --volve-violet: #8078E8;
+    --volve-violet-soft: rgba(128, 120, 232, 0.18);
+    --volve-violet-strong: #6F67D4;
+    --volve-coral: #FF6157;
+    --volve-coral-soft: rgba(255, 97, 87, 0.18);
+    --volve-sage: #66D96B;
+    --volve-sage-soft: rgba(102, 217, 107, 0.18);
+    --volve-bg: #1E1E28;
+    --volve-card-bg: #2D2D40;
+    --volve-border: rgba(255, 255, 255, 0.12);
+    --volve-off-white: #25252F;
+    --volve-text-primary: #FFFFFF;
+    --volve-text-secondary: #C5C5D8;
+  }
 }
 
 html {
