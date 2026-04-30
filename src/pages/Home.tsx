@@ -1,4 +1,7 @@
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import app1Url from '../assets/app-1.png'
+import app2Url from '../assets/app-2.png'
 
 // ── Icons ──────────────────────────────────────────────────────────────────────
 
@@ -59,65 +62,181 @@ const IconApple = () => (
   </svg>
 )
 
-// ── iPhone Mockup ──────────────────────────────────────────────────────────────
+// ── Phone Showcase ─────────────────────────────────────────────────────────────
+// Two iPhones with real screenshots, staggered diagonally. The whole group
+// tilts in 3D as the cursor moves over it (perspective rotateX/rotateY); each
+// phone also floats idly out of phase. A violet halo pulses behind.
 
-function IPhoneMockup() {
+function PhoneFrame({ src, alt }: { src: string; alt: string }) {
   return (
-    <div style={{ position: 'relative', width: 232, height: 476, flexShrink: 0 }}>
-      <div style={{ position: 'absolute', top: '20%', left: '5%', right: '5%', bottom: '-5%', background: 'radial-gradient(ellipse, rgba(110,107,179,0.22) 0%, transparent 70%)', filter: 'blur(24px)' }} />
-      <div style={{ position: 'absolute', inset: 0, borderRadius: 42, background: 'linear-gradient(160deg, #2e2e2e 0%, #1a1a1a 100%)', boxShadow: '0 32px 64px -16px rgba(0,0,0,0.45), 0 12px 28px -8px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)' }}>
-        <div style={{ position: 'absolute', top: 7, left: 7, right: 7, bottom: 7, borderRadius: 36, overflow: 'hidden', background: 'linear-gradient(160deg, #0c0820 0%, #180e3a 50%, #0d1838 100%)' }}>
-          <div style={{ position: 'absolute', top: 10, left: '50%', transform: 'translateX(-50%)', width: 84, height: 25, background: '#000', borderRadius: 16, zIndex: 10 }} />
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 18px 0', fontSize: 10, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
-            <span>9:41</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <svg width="14" height="10" viewBox="0 0 14 10" fill="rgba(255,255,255,0.55)"><rect x="0" y="5.5" width="2.2" height="4.5" rx="0.5"/><rect x="3.5" y="3.5" width="2.2" height="6.5" rx="0.5"/><rect x="7" y="1.5" width="2.2" height="8.5" rx="0.5"/><rect x="10.5" y="0" width="2.2" height="10" rx="0.5" opacity="0.3"/></svg>
-              <svg width="20" height="10" viewBox="0 0 20 10"><rect x="0.5" y="0.5" width="16" height="9" rx="2" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8" fill="none"/><rect x="17" y="2.5" width="2" height="5" rx="1" fill="rgba(255,255,255,0.25)"/><rect x="1.8" y="1.8" width="11" height="6.4" rx="1.2" fill="rgba(255,255,255,0.7)"/></svg>
-            </div>
-          </div>
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', paddingTop: 50 }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px 10px' }}>
-              <div>
-                <div style={{ fontSize: 8.5, color: 'rgba(255,255,255,0.3)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sesión activa</div>
-                <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.85)', fontWeight: 600, marginTop: 2 }}>Reunión con Diego</div>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'rgba(34,197,94,0.15)', borderRadius: 20, padding: '3px 8px' }}>
-                <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#22C55E' }} />
-                <span style={{ fontSize: 8.5, color: '#22C55E', fontWeight: 700 }}>En vivo</span>
-              </div>
-            </div>
-            <div style={{ padding: '0 14px 10px' }}>
-              <div style={{ background: 'rgba(110,107,179,0.10)', border: '1px solid rgba(110,107,179,0.18)', borderRadius: 20, padding: '14px 12px', textAlign: 'center' }}>
-                <div style={{ fontSize: 8.5, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginBottom: 4 }}>Tiempo restante</div>
-                <div style={{ fontSize: 44, fontWeight: 700, color: '#fff', letterSpacing: -2, lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>47:23</div>
-                <div style={{ fontSize: 8.5, color: 'rgba(184,174,255,0.4)', marginTop: 4 }}>Se activa a las 22:30</div>
-              </div>
-            </div>
-            <div style={{ padding: '0 14px 0' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 9, background: 'rgba(255,255,255,0.04)', borderRadius: 14, padding: '9px 11px' }}>
-                <div style={{ width: 26, height: 26, borderRadius: 7, background: 'rgba(37,99,235,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <svg width="12" height="12" fill="none" stroke="#3B82F6" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
-                </div>
-                <div>
-                  <div style={{ fontSize: 8.5, color: 'rgba(255,255,255,0.3)' }}>Última ubicación</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>San Martín 1234, BA</div>
-                </div>
-              </div>
-            </div>
-            <div style={{ flex: 1 }} />
-            <div style={{ padding: '0 14px 22px' }}>
-              <div style={{ background: 'linear-gradient(135deg, #6E6BB3, #C8C6F2)', borderRadius: 16, padding: '11px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: 11.5, fontWeight: 600, color: '#fff' }}>
-                <svg width="12" height="12" fill="none" stroke="white" strokeWidth={2.2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
-                Desactivar alarma
-              </div>
+    <div style={{
+      position: 'relative',
+      width: '100%', height: '100%',
+      borderRadius: 40,
+      background: 'linear-gradient(160deg, #2e2e38 0%, #1a1a22 100%)',
+      padding: 5,
+      boxShadow: `
+        0 36px 72px -18px rgba(20, 18, 50, 0.45),
+        0 14px 32px -10px rgba(110, 107, 179, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08)
+      `,
+    }}>
+      <img
+        src={src}
+        alt={alt}
+        loading="eager"
+        style={{
+          width: '100%', height: '100%',
+          display: 'block',
+          objectFit: 'cover',
+          borderRadius: 35,
+          background: '#F2F2F7',
+        }}
+      />
+      {/* Notch */}
+      <div style={{
+        position: 'absolute',
+        top: 14, left: '50%',
+        transform: 'translateX(-50%)',
+        width: '32%', height: 22,
+        background: '#000',
+        borderRadius: 14,
+        zIndex: 2,
+      }} />
+      {/* Glass reflection */}
+      <div style={{
+        position: 'absolute', inset: 5,
+        borderRadius: 35,
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 22%, transparent 45%, transparent 70%, rgba(255,255,255,0.06) 100%)',
+        pointerEvents: 'none',
+        mixBlendMode: 'overlay',
+      }} />
+    </div>
+  )
+}
+
+function PhoneShowcase() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0 })
+  const [active, setActive] = useState(false)
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const el = ref.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const dx = (e.clientX - rect.left) / rect.width - 0.5
+    const dy = (e.clientY - rect.top) / rect.height - 0.5
+    setTilt({ ry: dx * 14, rx: dy * -10 })
+  }
+
+  function handleLeave() {
+    setActive(false)
+    setTilt({ rx: 0, ry: 0 })
+  }
+
+  return (
+    <div
+      ref={ref}
+      onMouseEnter={() => setActive(true)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleLeave}
+      style={{
+        position: 'relative',
+        width: 380, height: 580,
+        flexShrink: 0,
+        perspective: 1500,
+      }}
+    >
+      <style>{`
+        @keyframes _haloPulse {
+          0%, 100% { opacity: 0.55; transform: scale(1); }
+          50%      { opacity: 0.85; transform: scale(1.08); }
+        }
+        @keyframes _floatA {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(-14px); }
+        }
+        @keyframes _floatB {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(-9px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          ._showcase-anim { animation: none !important; }
+        }
+      `}</style>
+
+      {/* Halo */}
+      <div
+        className="_showcase-anim"
+        style={{
+          position: 'absolute',
+          inset: '8% -8% -12% -8%',
+          background: 'radial-gradient(ellipse at 50% 55%, rgba(110,107,179,0.42) 0%, rgba(200,198,242,0.18) 35%, transparent 70%)',
+          filter: 'blur(48px)',
+          animation: '_haloPulse 5.5s ease-in-out infinite',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Phone group — tilts as a unit */}
+      <div style={{
+        position: 'relative',
+        width: '100%', height: '100%',
+        transformStyle: 'preserve-3d',
+        transform: `rotateY(${tilt.ry}deg) rotateX(${tilt.rx}deg)`,
+        transition: active
+          ? 'transform 0.15s ease-out'
+          : 'transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2)',
+      }}>
+
+        {/* Back phone — Active session */}
+        <div style={{
+          position: 'absolute',
+          top: 30, right: 0,
+          width: 220, height: 476,
+          transformStyle: 'preserve-3d',
+        }}>
+          <div
+            className="_showcase-anim"
+            style={{
+              width: '100%', height: '100%',
+              animation: '_floatA 6s ease-in-out infinite',
+            }}
+          >
+            <div style={{
+              width: '100%', height: '100%',
+              transform: 'translateZ(-50px) rotate(6deg)',
+              transformStyle: 'preserve-3d',
+            }}>
+              <PhoneFrame src={app1Url} alt="Volvé — sesión activa" />
             </div>
           </div>
         </div>
-        <div style={{ position: 'absolute', left: -2.5, top: 94, width: 3, height: 26, background: '#3a3a3a', borderRadius: '3px 0 0 3px' }} />
-        <div style={{ position: 'absolute', left: -2.5, top: 128, width: 3, height: 48, background: '#3a3a3a', borderRadius: '3px 0 0 3px' }} />
-        <div style={{ position: 'absolute', left: -2.5, top: 184, width: 3, height: 48, background: '#3a3a3a', borderRadius: '3px 0 0 3px' }} />
-        <div style={{ position: 'absolute', right: -2.5, top: 120, width: 3, height: 64, background: '#3a3a3a', borderRadius: '0 3px 3px 0' }} />
-        <div style={{ position: 'absolute', bottom: 9, left: '50%', transform: 'translateX(-50%)', width: 86, height: 3.5, borderRadius: 3, background: 'rgba(255,255,255,0.2)' }} />
+
+        {/* Front phone — Home */}
+        <div style={{
+          position: 'absolute',
+          top: 0, left: 10,
+          width: 244, height: 528,
+          transformStyle: 'preserve-3d',
+        }}>
+          <div
+            className="_showcase-anim"
+            style={{
+              width: '100%', height: '100%',
+              animation: '_floatB 6.6s ease-in-out infinite',
+              animationDelay: '0.8s',
+            }}
+          >
+            <div style={{
+              width: '100%', height: '100%',
+              transform: 'translateZ(50px) rotate(-4deg)',
+              transformStyle: 'preserve-3d',
+            }}>
+              <PhoneFrame src={app2Url} alt="Volvé — pantalla principal" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -156,7 +275,7 @@ export default function Home() {
   const isEs = i18n.language.startsWith('es')
 
   return (
-    <main style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
+    <main style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', overflowX: 'hidden' }}>
 
       {/* ── HERO ── */}
       <section style={{ background: 'linear-gradient(150deg, #f0eeff 0%, #f7f5ff 40%, #ffffff 100%)', paddingTop: 64 }}>
@@ -197,7 +316,7 @@ export default function Home() {
               </div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <IPhoneMockup />
+              <PhoneShowcase />
             </div>
           </div>
         </div>
