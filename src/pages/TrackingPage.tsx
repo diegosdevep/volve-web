@@ -2,7 +2,8 @@ import { useEffect, useState, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import { doc, onSnapshot, Timestamp } from 'firebase/firestore'
 import { db } from '../firebase'
-import { MapContainer, TileLayer, CircleMarker, Polyline, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, CircleMarker, Marker, Polyline, useMap } from 'react-leaflet'
+import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import logoUrl from '../assets/logo.svg'
 
@@ -139,6 +140,68 @@ function MapController({ center }: { center: [number, number] }) {
   return null
 }
 
+// ── Trail segments ───────────────────────────────────────────────
+// Splits the route into N equal-length chunks (by index) so each chunk can be
+// drawn with progressively higher opacity — older segments fade, newest
+// segment is fully opaque. Adjacent chunks share an endpoint so the line is
+// visually continuous.
+
+const TRAIL_SEGMENTS = 10
+
+function buildTrailSegments(
+  path: [number, number][],
+  segments: number = TRAIL_SEGMENTS,
+): { points: [number, number][]; opacity: number }[] {
+  if (path.length < 2) return []
+  if (path.length <= segments) {
+    return [{ points: path, opacity: 0.85 }]
+  }
+  const result: { points: [number, number][]; opacity: number }[] = []
+  const step = path.length / segments
+  for (let i = 0; i < segments; i++) {
+    const start = Math.floor(i * step)
+    const end = i === segments - 1 ? path.length - 1 : Math.floor((i + 1) * step)
+    const pts = path.slice(start, end + 1)
+    if (pts.length < 2) continue
+    const opacity = 0.22 + (i / (segments - 1)) * 0.63
+    result.push({ points: pts, opacity })
+  }
+  return result
+}
+
+// ── Pulse marker ─────────────────────────────────────────────────
+// Multi-ring "Find My"-style pulse for the current location. Uses Leaflet's
+// divIcon so we can drive it with CSS keyframes instead of trying to animate
+// SVG path attributes.
+
+function PulseMarker({
+  position, color, isLive,
+}: {
+  position: [number, number]
+  color: string
+  isLive: boolean
+}) {
+  const rings = isLive
+    ? `
+      <span class="pulse-ring" style="background:${color}"></span>
+      <span class="pulse-ring pulse-ring-2" style="background:${color}"></span>
+      <span class="pulse-ring pulse-ring-3" style="background:${color}"></span>
+    `
+    : ''
+  const icon = L.divIcon({
+    html: `
+      <div class="pulse-wrapper">
+        ${rings}
+        <span class="pulse-dot" style="background:${color};opacity:${isLive ? 1 : 0.7}"></span>
+      </div>
+    `,
+    className: 'pulse-marker-root',
+    iconSize: [26, 26],
+    iconAnchor: [13, 13],
+  })
+  return <Marker position={position} icon={icon} interactive={false} />
+}
+
 // ── Main component ───────────────────────────────────────────────
 
 export default function TrackingPage() {
@@ -246,6 +309,7 @@ export default function TrackingPage() {
     : null
   const routePath: [number, number][] =
     snappedPath && snappedPath.length > 1 ? snappedPath : points
+  const trailSegments = buildTrailSegments(routePath)
   const lastPoint = points.length > 0 ? points[points.length - 1] : null
   const isPanic = session.status === 'panicButton'
   const severityColor = VOLVE.coral
@@ -284,9 +348,40 @@ export default function TrackingPage() {
       <style>{`
         @keyframes _spin    { to { transform: rotate(360deg) } }
         @keyframes _blink   { 0%,100%{opacity:1} 50%{opacity:0.35} }
-        @keyframes _ripple  { 0%{transform:scale(1);opacity:0.5} 100%{transform:scale(2.4);opacity:0} }
+        @keyframes _pulseOut {
+          0%   { transform: scale(0.6); opacity: 0.55; }
+          80%  { opacity: 0; }
+          100% { transform: scale(4.2); opacity: 0; }
+        }
         .leaflet-container  { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
         .trk-stat-card:hover { transform: translateY(-1px); transition: transform 0.15s; }
+
+        /* Multi-ring "Find My"-style pulse marker */
+        .pulse-marker-root { background: transparent !important; border: none !important; }
+        .pulse-wrapper {
+          position: relative;
+          width: 26px; height: 26px;
+        }
+        .pulse-dot {
+          position: absolute; inset: 5px;
+          border-radius: 50%;
+          border: 3px solid #fff;
+          box-shadow:
+            0 0 0 1px rgba(46,46,56,0.10),
+            0 4px 10px rgba(110,107,179,0.35);
+        }
+        .pulse-ring {
+          position: absolute; inset: 5px;
+          border-radius: 50%;
+          opacity: 0;
+          animation: _pulseOut 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+          will-change: transform, opacity;
+        }
+        .pulse-ring-2 { animation-delay: 0.8s; }
+        .pulse-ring-3 { animation-delay: 1.6s; }
+        @media (prefers-reduced-motion: reduce) {
+          .pulse-ring { animation: none; opacity: 0.18; transform: scale(2.2); }
+        }
       `}</style>
 
       {/* ── Header ────────────────────────────────────────────── */}
@@ -419,16 +514,17 @@ export default function TrackingPage() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            {/* Route polyline */}
-            {routePath.length > 1 && (
+            {/* Route polyline — drawn as N segments with ascending opacity */}
+            {trailSegments.map((seg, i) => (
               <Polyline
-                positions={routePath}
+                key={`trail-${i}`}
+                positions={seg.points}
                 color={brandColor}
                 weight={5}
-                opacity={0.85}
+                opacity={seg.opacity}
                 dashArray={isLive ? undefined : '8, 5'}
               />
-            )}
+            ))}
 
             {/* Start marker — sage */}
             {points.length > 1 && (
@@ -455,27 +551,8 @@ export default function TrackingPage() {
               />
             ))}
 
-            {/* Ripple ring — only when live (BrandPulseRing parity) */}
-            {isLive && (
-              <CircleMarker
-                center={lastPoint}
-                radius={22}
-                fillColor={brandColor}
-                color={brandColor}
-                weight={0}
-                fillOpacity={0.18}
-              />
-            )}
-
-            {/* Current position — main dot */}
-            <CircleMarker
-              center={lastPoint}
-              radius={12}
-              fillColor={brandColor}
-              color="white"
-              weight={3}
-              fillOpacity={isLive ? 0.95 : 0.6}
-            />
+            {/* Current position — multi-ring "Find My"-style pulse */}
+            <PulseMarker position={lastPoint} color={brandColor} isLive={isLive} />
 
             <MapController center={lastPoint} />
           </MapContainer>
