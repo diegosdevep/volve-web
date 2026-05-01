@@ -295,7 +295,7 @@ export default function Home() {
                   : 'Set up a session before you go out. If you don\'t deactivate it in time, your trusted contacts automatically receive an alert with all the information.'}
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 28 }}>
-                <a href="#download" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, background: '#6E6BB3', color: '#fff', padding: '13px 22px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 18px rgba(110,107,179,0.32)' }}>
+                <a href="https://apps.apple.com/app/id6760594576" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, background: '#6E6BB3', color: '#fff', padding: '13px 22px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 18px rgba(110,107,179,0.32)' }}>
                   <IconApple />
                   {isEs ? 'Descargar para iPhone' : 'Download for iPhone'}
                 </a>
@@ -842,10 +842,35 @@ export default function Home() {
               ? 'Tardás menos de 5 minutos en configurarla. La próxima vez que salgas, salís con una red de seguridad.'
               : 'It takes less than 5 minutes to set up. Next time you go out, you go out with a safety net.'}
           </p>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 11, background: 'rgba(255,255,255,0.15)', border: '1.5px solid rgba(255,255,255,0.28)', color: '#fff', padding: '14px 28px', borderRadius: 14, fontSize: 15, fontWeight: 600 }}>
+          <a
+            href="https://apps.apple.com/app/id6760594576"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 14,
+              background: '#000', color: '#fff',
+              padding: '14px 26px', borderRadius: 14,
+              fontSize: 15, textDecoration: 'none',
+              boxShadow: '0 16px 36px rgba(0,0,0,0.25)',
+              transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-2px)'
+              e.currentTarget.style.boxShadow = '0 20px 44px rgba(0,0,0,0.32)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)'
+              e.currentTarget.style.boxShadow = '0 16px 36px rgba(0,0,0,0.25)'
+            }}
+          >
             <IconApple />
-            {isEs ? 'App Store — Próximamente' : 'App Store — Coming soon'}
-          </div>
+            <span style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.05 }}>
+              <span style={{ fontSize: 11, fontWeight: 500, opacity: 0.78, letterSpacing: 0.2 }}>
+                {isEs ? 'Descargar en el' : 'Download on the'}
+              </span>
+              <span style={{ fontSize: 19, fontWeight: 700, letterSpacing: -0.3 }}>App Store</span>
+            </span>
+          </a>
         </div>
       </section>
 

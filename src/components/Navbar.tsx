@@ -45,7 +45,9 @@ export default function Navbar() {
             {t('nav.howItWorks')}
           </a>
           <a
-            href="#download"
+            href="https://apps.apple.com/app/id6760594576"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               fontSize: 14, fontWeight: 600, color: '#fff',
               padding: '9px 22px', borderRadius: 999, textDecoration: 'none',
@@ -124,7 +126,9 @@ export default function Navbar() {
             {t('nav.howItWorks')}
           </a>
           <a
-            href="#download"
+            href="https://apps.apple.com/app/id6760594576"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 14, fontWeight: 600, color: '#fff',
