@@ -299,7 +299,7 @@ export default function Home() {
                   <IconApple />
                   {isEs ? 'Descargar para iPhone' : 'Download for iPhone'}
                 </a>
-                <a href="#como-funciona" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: '#fff', color: '#374151', padding: '13px 22px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: '1.5px solid #E5E7EB' }}>
+                <a href="#how-it-works" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: '#fff', color: '#374151', padding: '13px 22px', borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: '1.5px solid #E5E7EB' }}>
                   {isEs ? 'Ver cómo funciona' : 'See how it works'}
                   <svg width="13" height="13" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
                 </a>
