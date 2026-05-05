@@ -30,7 +30,7 @@ export default function Terms() {
             {isEs ? 'Términos y condiciones' : 'Terms of Service'}
           </h1>
           <p style={{ fontSize: 15, color: '#6B7280', margin: '0 0 16px' }}>
-            {isEs ? 'Última actualización: marzo 2026' : 'Last updated: March 2026'}
+            {isEs ? 'Última actualización: mayo 2026' : 'Last updated: May 2026'}
           </p>
           <p style={{ fontSize: 16, color: '#374151', lineHeight: 1.7, maxWidth: 620, margin: 0 }}>
             {isEs
@@ -134,7 +134,7 @@ function TermsEs() {
           'Usar un código de coacción que simula una desactivación normal pero alerta silenciosamente a tus contactos.',
           'Activar un botón de pánico para alertar de forma inmediata.',
         ]} />
-        <Warning text={<><strong>IMPORTANTE: Volvé NO es un servicio de emergencias.</strong> No reemplaza al 911, 112 ni a ningún organismo oficial de seguridad. En situaciones de peligro inmediato, llamá al número de emergencias de tu país. El envío de alertas depende de la conectividad del dispositivo y de los servicios de terceros (Twilio, SendGrid); no podemos garantizar la entrega en todos los casos.</>} />
+        <Warning text={<><strong>IMPORTANTE: Volvé NO es un servicio de emergencias.</strong> No reemplaza al 911, 112 ni a ningún organismo oficial de seguridad. En situaciones de peligro inmediato, llamá al número de emergencias de tu país. El envío de alertas depende de la conectividad del dispositivo y de los servicios de terceros (Twilio, Resend); no podemos garantizar la entrega en todos los casos.</>} />
       </Section>
 
       <Section num="2" title="Elegibilidad">
@@ -209,7 +209,7 @@ function TermsEs() {
           'Volvé se provee "tal como está", sin garantías de ningún tipo.',
           'No somos responsables por daños directos, indirectos o incidentales derivados del uso o la imposibilidad de uso de la app.',
           'No garantizamos que las alertas se entreguen en todos los casos ni en un tiempo determinado.',
-          'No somos responsables por las acciones u omisiones de Twilio, Gmail, Firebase ni otros terceros.',
+          'No somos responsables por las acciones u omisiones de Twilio, Resend, Firebase ni otros terceros.',
         ]} />
         <Warning text="Si estás en una situación de riesgo real, no dependas exclusivamente de Volvé. Llamá al 911 o al número de emergencias de tu país." />
       </Section>
@@ -228,10 +228,54 @@ function TermsEs() {
       </Section>
 
       <Section num="14" title="Legislación aplicable">
-        <P>Estos términos se rigen por las leyes de la República Argentina. Cualquier disputa se resolverá ante los tribunales competentes de la Ciudad Autónoma de Buenos Aires.</P>
+        <P>Estos términos se rigen por las leyes de la República Argentina.</P>
+        <P>El foro de resolución de disputas se establece en la cláusula <strong>15. Arbitraje obligatorio</strong>.</P>
       </Section>
 
-      <Section num="15" title="Contacto">
+      <Section num="15" title="Arbitraje obligatorio">
+        <P>Cualquier disputa derivada del uso de Volvé se resolverá mediante <strong>arbitraje vinculante</strong> en la Ciudad Autónoma de Buenos Aires, conforme al reglamento del <strong>Tribunal de Arbitraje General de la Bolsa de Comercio</strong>.</P>
+        <P>Las partes renuncian expresamente al juicio público y a los recursos ordinarios contra el laudo arbitral.</P>
+      </Section>
+
+      <Section num="16" title="Renuncia a acción colectiva">
+        <P>El usuario acepta resolver cualquier disputa con Volvé exclusivamente <strong>a título individual</strong>.</P>
+        <P>Renuncia expresamente a participar en acciones de clase, colectivas, representativas o consolidadas contra Volvé.</P>
+      </Section>
+
+      <Section num="17" title="Límite máximo de responsabilidad">
+        <P>En ningún caso la responsabilidad total de Volvé frente al usuario, por cualquier causa y bajo cualquier teoría legal, excederá el <strong>menor</strong> de los siguientes montos:</P>
+        <UL items={[
+          'El total pagado por el usuario a Volvé en los doce (12) meses anteriores al hecho que originó el reclamo.',
+          <>Cien dólares estadounidenses (<strong>USD 100</strong>).</>,
+        ]} />
+      </Section>
+
+      <Section num="18" title="Indemnización del usuario">
+        <P>El usuario acepta indemnizar, defender y mantener indemne a Volvé y a Diego Maidana frente a cualquier reclamo, daño, pérdida o gasto (incluidos honorarios legales) derivados de:</P>
+        <UL items={[
+          'Información incorrecta, incompleta o falsa proporcionada por el usuario.',
+          'Falta de consentimiento de los contactos de emergencia agregados por el usuario.',
+          'Uso de la app contrario a estos términos o a las leyes vigentes.',
+          'Reclamos de terceros relacionados con el contenido subido por el usuario.',
+        ]} />
+      </Section>
+
+      <Section num="19" title="Plazo contractual para reclamos">
+        <P>Cualquier reclamo o causa de acción del usuario contra Volvé deberá presentarse dentro de los <strong>seis (6) meses</strong> siguientes al hecho que la originó.</P>
+        <P>Vencido ese plazo, la acción se considerará renunciada y prescripta a todos los efectos.</P>
+      </Section>
+
+      <Section num="20" title="Aceptación informada del riesgo">
+        <P>El usuario reconoce y acepta expresamente que:</P>
+        <UL items={[
+          <>Volvé <strong>NO es un servicio de emergencias</strong> y no reemplaza al 911, 112 ni ningún organismo oficial.</>,
+          'El funcionamiento de Volvé depende de servicios de terceros (Apple, Firebase, Twilio, Google, Vercel) y de la conectividad del dispositivo, sobre los que Volvé no tiene control total.',
+          'La entrega de alertas no puede garantizarse en todos los casos.',
+          <>El usuario <strong>NO debe confiar exclusivamente en Volvé</strong> para su seguridad personal y debe mantener canales alternativos de protección activos en todo momento.</>,
+        ]} />
+      </Section>
+
+      <Section num="21" title="Contacto">
         <P>Para consultas sobre estos términos:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>
@@ -253,7 +297,7 @@ function TermsEn() {
           'Use a duress code that simulates a normal deactivation but silently alerts your contacts.',
           'Activate a panic button to alert immediately.',
         ]} />
-        <Warning text={<><strong>IMPORTANT: Volvé is NOT an emergency service.</strong> It does not replace 911, 112, or any official safety service. In situations of immediate danger, call your country's emergency number. Alert delivery depends on device connectivity and third-party services (Twilio, SendGrid); we cannot guarantee delivery in all cases.</>} />
+        <Warning text={<><strong>IMPORTANT: Volvé is NOT an emergency service.</strong> It does not replace 911, 112, or any official safety service. In situations of immediate danger, call your country's emergency number. Alert delivery depends on device connectivity and third-party services (Twilio, Resend); we cannot guarantee delivery in all cases.</>} />
       </Section>
 
       <Section num="2" title="Eligibility">
@@ -328,7 +372,7 @@ function TermsEn() {
           'Volvé is provided "as is", without warranties of any kind.',
           'We are not liable for direct, indirect, or incidental damages arising from the use or inability to use the app.',
           'We do not guarantee that alerts will be delivered in all cases or within any specific time.',
-          'We are not responsible for the actions or omissions of Twilio, Gmail, Firebase, or other third parties.',
+          'We are not responsible for the actions or omissions of Twilio, Resend, Firebase, or other third parties.',
         ]} />
         <Warning text="If you are in a real risk situation, do not rely exclusively on Volvé. Call 911 or your country's emergency number." />
       </Section>
@@ -347,10 +391,54 @@ function TermsEn() {
       </Section>
 
       <Section num="14" title="Governing law">
-        <P>These terms are governed by the laws of the Argentine Republic. Any dispute will be resolved before the competent courts of the Autonomous City of Buenos Aires.</P>
+        <P>These terms are governed by the laws of the Argentine Republic.</P>
+        <P>The dispute resolution forum is established in clause <strong>15. Binding arbitration</strong>.</P>
       </Section>
 
-      <Section num="15" title="Contact">
+      <Section num="15" title="Binding arbitration">
+        <P>Any dispute arising from the use of Volvé will be resolved through <strong>binding arbitration</strong> in the Autonomous City of Buenos Aires, in accordance with the rules of the <strong>General Arbitration Tribunal of the Buenos Aires Stock Exchange</strong> (<em>Tribunal de Arbitraje General de la Bolsa de Comercio</em>).</P>
+        <P>The parties expressly waive their right to a public trial and to ordinary remedies against the arbitral award.</P>
+      </Section>
+
+      <Section num="16" title="Class action waiver">
+        <P>The user agrees to resolve any dispute with Volvé <strong>exclusively on an individual basis</strong>.</P>
+        <P>The user expressly waives the right to participate in class, collective, representative, or consolidated actions against Volvé.</P>
+      </Section>
+
+      <Section num="17" title="Maximum liability cap">
+        <P>In no event shall Volvé's total liability to the user, for any cause and under any legal theory, exceed the <strong>lesser</strong> of:</P>
+        <UL items={[
+          'The total amount paid by the user to Volvé during the twelve (12) months preceding the event giving rise to the claim.',
+          <>One hundred United States dollars (<strong>USD 100</strong>).</>,
+        ]} />
+      </Section>
+
+      <Section num="18" title="User indemnification">
+        <P>The user agrees to indemnify, defend, and hold harmless Volvé and Diego Maidana from and against any claim, damage, loss, or expense (including legal fees) arising from:</P>
+        <UL items={[
+          'Incorrect, incomplete, or false information provided by the user.',
+          'Lack of consent from emergency contacts added by the user.',
+          'Use of the app contrary to these terms or applicable laws.',
+          'Third-party claims related to content uploaded by the user.',
+        ]} />
+      </Section>
+
+      <Section num="19" title="Contractual claim period">
+        <P>Any claim or cause of action by the user against Volvé must be filed within <strong>six (6) months</strong> following the event giving rise to it.</P>
+        <P>After that period, the action will be deemed waived and time-barred for all purposes.</P>
+      </Section>
+
+      <Section num="20" title="Informed acceptance of risk">
+        <P>The user expressly acknowledges and accepts that:</P>
+        <UL items={[
+          <>Volvé is <strong>NOT an emergency service</strong> and does not replace 911, 112, or any official agency.</>,
+          "Volvé's operation depends on third-party services (Apple, Firebase, Twilio, Google, Vercel) and on device connectivity, over which Volvé does not have full control.",
+          'Alert delivery cannot be guaranteed in all cases.',
+          <>The user <strong>must NOT rely exclusively on Volvé</strong> for personal safety and must keep alternative protection channels active at all times.</>,
+        ]} />
+      </Section>
+
+      <Section num="21" title="Contact">
         <P>For inquiries about these terms:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>

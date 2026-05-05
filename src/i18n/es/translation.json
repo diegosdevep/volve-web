@@ -72,14 +72,15 @@
     "tagline": "Tu seguridad, en tus manos.",
     "privacy": "Política de privacidad",
     "terms": "Términos y condiciones",
+    "status": "Estado del servicio",
     "rights": "© 2026 Volvé. Todos los derechos reservados."
   },
   "privacy": {
     "title": "Política de privacidad",
-    "lastUpdated": "Última actualización: marzo 2026"
+    "lastUpdated": "Última actualización: mayo 2026"
   },
   "terms": {
     "title": "Términos y condiciones",
-    "lastUpdated": "Última actualización: marzo 2026"
+    "lastUpdated": "Última actualización: mayo 2026"
   }
 }

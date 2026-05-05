@@ -30,7 +30,7 @@ export default function Privacy() {
             {isEs ? 'Política de privacidad' : 'Privacy Policy'}
           </h1>
           <p style={{ fontSize: 15, color: '#6B7280', margin: '0 0 16px' }}>
-            {isEs ? 'Última actualización: marzo 2026' : 'Last updated: March 2026'}
+            {isEs ? 'Última actualización: mayo 2026' : 'Last updated: May 2026'}
           </p>
           <p style={{ fontSize: 16, color: '#374151', lineHeight: 1.7, maxWidth: 620, margin: 0 }}>
             {isEs
@@ -162,7 +162,7 @@ function PrivacyEs() {
         <Table rows={[
           ['Firebase / Google', 'Autenticación de usuarios, base de datos Firestore y almacenamiento de fotos. Datos alojados en servidores de Google.'],
           ['Twilio', 'Envío de mensajes de WhatsApp a tus contactos de emergencia cuando se dispara una alerta.'],
-          ['Gmail (Google)', 'Envío de emails a tus contactos de emergencia cuando se dispara una alerta.'],
+          ['Resend', 'Envío de emails transaccionales a tus contactos de emergencia cuando se dispara una alerta. Servidores en Estados Unidos.'],
           ['Google Maps', 'Generación de mapas estáticos incluidos en los emails de alerta.'],
           ['Vercel', 'Hosting de la página de seguimiento en vivo que reciben tus contactos de emergencia.'],
           ['Apple (StoreKit)', 'Procesamiento de pagos para la suscripción premium. No almacenamos datos financieros.'],
@@ -189,7 +189,7 @@ function PrivacyEs() {
       </Section>
 
       <Section num="7" title="Transferencias internacionales de datos">
-        <P>Tus datos se almacenan en servidores de Google (Firebase) ubicados en Estados Unidos. Los mensajes de alerta se envían a través de Twilio (WhatsApp) y Gmail, cuyos servidores también se encuentran en EE.UU.</P>
+        <P>Tus datos se almacenan en servidores de Google (Firebase) ubicados en Estados Unidos. Los mensajes de alerta se envían a través de Twilio (WhatsApp) y Resend (email), cuyos servidores también se encuentran en EE.UU.</P>
       </Section>
 
       <Section num="8" title="Seguridad">
@@ -209,7 +209,12 @@ function PrivacyEs() {
         <P>Podemos actualizar esta política ante cambios en la app o requerimientos legales. Te notificaremos cambios importantes dentro de la app. La fecha de última actualización siempre estará visible al inicio de esta página.</P>
       </Section>
 
-      <Section num="11" title="Contacto">
+      <Section num="11" title="Auditoría y registros técnicos">
+        <P>Volvé mantiene logs técnicos de cada alerta enviada (timestamp, estado de entrega, servicios involucrados) por motivos de seguridad, debugging y respaldo legal en caso de disputas.</P>
+        <P>Estos logs <strong>no contienen contenido personal de la sesión</strong> (solo metadatos) y se conservan por <strong>24 meses</strong>.</P>
+      </Section>
+
+      <Section num="12" title="Contacto">
         <P>Para consultas sobre privacidad o para ejercer tus derechos de acceso, rectificación o eliminación de datos:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>
@@ -251,7 +256,7 @@ function PrivacyEn() {
         <Table rows={[
           ['Firebase / Google', 'User authentication, Firestore database and photo storage. Data hosted on Google servers.'],
           ['Twilio', 'Sending WhatsApp messages to your emergency contacts when an alert is triggered.'],
-          ['Gmail (Google)', 'Sending emails to your emergency contacts when an alert is triggered.'],
+          ['Resend', 'Transactional email delivery to your emergency contacts when an alert is triggered. Servers in the United States.'],
           ['Google Maps', 'Generating static maps included in alert emails.'],
           ['Vercel', 'Hosting the live tracking page that your emergency contacts receive.'],
           ['Apple (StoreKit)', 'Payment processing for the premium subscription. We do not store financial data.'],
@@ -278,7 +283,7 @@ function PrivacyEn() {
       </Section>
 
       <Section num="7" title="International data transfers">
-        <P>Your data is stored on Google (Firebase) servers located in the United States. Alert messages are sent through Twilio (WhatsApp) and Gmail, whose servers are also located in the U.S.</P>
+        <P>Your data is stored on Google (Firebase) servers located in the United States. Alert messages are sent through Twilio (WhatsApp) and Resend (email), whose servers are also located in the U.S.</P>
       </Section>
 
       <Section num="8" title="Security">
@@ -298,7 +303,12 @@ function PrivacyEn() {
         <P>We may update this policy due to app changes or legal requirements. We will notify you of significant changes within the app. The last updated date will always be visible at the top of this page.</P>
       </Section>
 
-      <Section num="11" title="Contact">
+      <Section num="11" title="Audit and technical logs">
+        <P>Volvé maintains technical logs of each alert sent (timestamp, delivery status, services involved) for security, debugging, and legal backup purposes in case of disputes.</P>
+        <P>These logs <strong>do not contain personal session content</strong> (metadata only) and are retained for <strong>24 months</strong>.</P>
+      </Section>
+
+      <Section num="12" title="Contact">
         <P>For privacy inquiries or to exercise your rights of access, rectification, or data deletion:</P>
         <P>📧 <a href="mailto:soporte@volve-app.com" style={{ color: PURPLE, fontWeight: 600, textDecoration: 'none' }}>soporte@volve-app.com</a></P>
       </Section>

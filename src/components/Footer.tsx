@@ -60,6 +60,14 @@ export default function Footer() {
               >
                 {t('footer.terms')}
               </Link>
+              <Link
+                to="/status"
+                style={{ fontSize: 14, color: '#9CA3AF', textDecoration: 'none', transition: 'color 0.15s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#9CA3AF')}
+              >
+                {t('footer.status')}
+              </Link>
             </div>
           </div>
 

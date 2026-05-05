@@ -72,14 +72,15 @@
     "tagline": "Your safety, in your hands.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
+    "status": "Service status",
     "rights": "© 2026 Volvé. All rights reserved."
   },
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: March 2026"
+    "lastUpdated": "Last updated: May 2026"
   },
   "terms": {
     "title": "Terms of Service",
-    "lastUpdated": "Last updated: March 2026"
+    "lastUpdated": "Last updated: May 2026"
   }
 }
