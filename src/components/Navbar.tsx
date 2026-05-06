@@ -37,22 +37,22 @@ export default function Navbar() {
           >
             {t('nav.business')}
           </Link>
-          <a
-            href="#features"
+          <Link
+            to="/#features"
             style={{ fontSize: 14, color: '#4B5563', textDecoration: 'none', fontWeight: 500 }}
             onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
             onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
           >
             {t('nav.features')}
-          </a>
-          <a
-            href="#how-it-works"
+          </Link>
+          <Link
+            to="/#how-it-works"
             style={{ fontSize: 14, color: '#4B5563', textDecoration: 'none', fontWeight: 500 }}
             onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
             onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
           >
             {t('nav.howItWorks')}
-          </a>
+          </Link>
           <a
             href="https://apps.apple.com/app/id6760594576"
             target="_blank"
@@ -131,12 +131,12 @@ export default function Navbar() {
           <Link to="/empresas" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
             {t('nav.business')}
           </Link>
-          <a href="#features" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+          <Link to="/#features" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
             {t('nav.features')}
-          </a>
-          <a href="#how-it-works" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+          </Link>
+          <Link to="/#how-it-works" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
             {t('nav.howItWorks')}
-          </a>
+          </Link>
           <a
             href="https://apps.apple.com/app/id6760594576"
             target="_blank"
