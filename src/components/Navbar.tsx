@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import logoUrl from '../assets/logo.svg'
 
@@ -28,6 +29,14 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="desktop-nav">
+          <Link
+            to="/empresas"
+            style={{ fontSize: 14, color: '#4B5563', textDecoration: 'none', fontWeight: 500 }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#111827')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#4B5563')}
+          >
+            {t('nav.business')}
+          </Link>
           <a
             href="#features"
             style={{ fontSize: 14, color: '#4B5563', textDecoration: 'none', fontWeight: 500 }}
@@ -112,13 +121,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div style={{
-        overflow: 'hidden', maxHeight: mobileOpen ? 220 : 0,
+        overflow: 'hidden', maxHeight: mobileOpen ? 260 : 0,
         transition: 'max-height 0.3s ease',
       }} className="mobile-menu">
         <div style={{
           borderTop: '1px solid #F3F4F6', backgroundColor: '#fff',
           padding: '20px 32px', display: 'flex', flexDirection: 'column', gap: 16,
         }}>
+          <Link to="/empresas" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
+            {t('nav.business')}
+          </Link>
           <a href="#features" style={{ fontSize: 14, color: '#374151', fontWeight: 500, textDecoration: 'none' }} onClick={() => setMobileOpen(false)}>
             {t('nav.features')}
           </a>

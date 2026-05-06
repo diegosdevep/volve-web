@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Status from './pages/Status'
+import Empresas from './pages/Empresas'
 import TrackingPage from './pages/TrackingPage'
 
 function Layout() {
@@ -19,6 +20,7 @@ function Layout() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/status" element={<Status />} />
+        <Route path="/empresas" element={<Empresas />} />
         <Route path="/track/:userId/:sessionId" element={<TrackingPage />} />
       </Routes>
       {!isTracking && <Footer />}
